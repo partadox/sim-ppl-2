@@ -110,15 +110,15 @@
       <i class="fas fa-tachometer-alt"></i>
       <span> Meter Reading</span>
     </a>
-    <div id="collapseMeterReadomg" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="collapseMeterReadomg" class="<?= $sidebar_mr_collapse; ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Submenu:</h6>
-        <a class="collapse-item" href="#">Data CCR</a>
-        <a class="collapse-item" href="#">Print Data CCR</a>
-        <a class="collapse-item" href="#">Data UPS</a>
-        <a class="collapse-item" href="#">Print Data UPS</a>
-        <a class="collapse-item" href="#">Data Genset</a>
-        <a class="collapse-item" href="#">Print Data Genset</a>
+        <a class="<?= $sidebar_mr_ccr; ?>" href="<?= base_url('admin/data_mr_ccr'); ?>">Data CCR</a>
+        <a class="<?= $sidebar_mr_ccr_print; ?>" href="#">Print Data CCR</a>
+        <a class="<?= $sidebar_mr_ups; ?>" href="#">Data UPS</a>
+        <a class="<?= $sidebar_mr_ups_print; ?>" href="#">Print Data UPS</a>
+        <a class="<?= $sidebar_mr_genset; ?>" href="#">Data Genset</a>
+        <a class="<?= $sidebar_mr_genset_print; ?>" href="#">Print Data Genset</a>
       </div>
     </div>
   </li>

@@ -12,6 +12,7 @@ class Admin extends CI_Controller
         $this->load->model('Perawatan_model');
         $this->load->model('Logbook_model');
         $this->load->model('LKP_model');
+        $this->load->model('Ccr_model');
         $this->load->library('form_validation');
         $this->load->library('javascript');
     }
@@ -45,7 +46,15 @@ class Admin extends CI_Controller
         $data['sidebar_lkp_data']             = 'collapse-item';
         $data['sidebar_lkp_print']            = 'collapse-item';
 
-        $data['sidebar_mr']          = 'nav-item';
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Selamat Datang Admin di Dashboard SIM-PPL Bandar Udara Budiarto Tangerang';
@@ -87,7 +96,15 @@ class Admin extends CI_Controller
         $data['sidebar_lkp_data']             = 'collapse-item';
         $data['sidebar_lkp_print']            = 'collapse-item';
 
-        $data['sidebar_mr']          = 'nav-item';
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Petugas - SIM PPL Bandar Udara Budiarto Tangerang';
@@ -200,7 +217,15 @@ class Admin extends CI_Controller
         $data['sidebar_lkp_data']             = 'collapse-item';
         $data['sidebar_lkp_print']            = 'collapse-item';
 
-        $data['sidebar_mr']          = 'nav-item';
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Peralatan - SIM PPL Bandar Udara Budiarto Tangerang';
@@ -313,7 +338,15 @@ class Admin extends CI_Controller
         $data['sidebar_lkp_data']             = 'collapse-item';
         $data['sidebar_lkp_print']            = 'collapse-item';
 
-        $data['sidebar_mr']          = 'nav-item';
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Pemeliharaan- SIM PPL Bandar Udara Budiarto Tangerang';
@@ -399,7 +432,15 @@ class Admin extends CI_Controller
         $data['sidebar_lkp_data']             = 'collapse-item';
         $data['sidebar_lkp_print']            = 'collapse-item';
 
-        $data['sidebar_mr']          = 'nav-item';
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Pemeliharaan Harian - SIM PPL Bandar Udara Budiarto Tangerang';
@@ -444,7 +485,15 @@ class Admin extends CI_Controller
         $data['sidebar_lkp_data']             = 'collapse-item';
         $data['sidebar_lkp_print']            = 'collapse-item';
 
-        $data['sidebar_mr']          = 'nav-item';
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Pemeliharaan Mingguan - SIM PPL Bandar Udara Budiarto Tangerang';
@@ -488,7 +537,16 @@ class Admin extends CI_Controller
         $data['sidebar_lkp_collapse']         = 'collapse';
         $data['sidebar_lkp_data']             = 'collapse-item';
         $data['sidebar_lkp_print']            = 'collapse-item';
-        $data['sidebar_mr']          = 'nav-item';
+
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Pemeliharaan Bulanan - SIM PPL Bandar Udara Budiarto Tangerang';
@@ -533,7 +591,15 @@ class Admin extends CI_Controller
         $data['sidebar_lkp_data']             = 'collapse-item';
         $data['sidebar_lkp_print']            = 'collapse-item';
 
-        $data['sidebar_mr']          = 'nav-item';
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Facility Logbook - SIM PPL Bandar Udara Budiarto Tangerang';
@@ -623,7 +689,15 @@ class Admin extends CI_Controller
         $data['sidebar_lkp_data']             = 'collapse-item';
         $data['sidebar_lkp_print']            = 'collapse-item';
 
-        $data['sidebar_mr']          = 'nav-item';
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Facility Logbook - SIM PPL Bandar Udara Budiarto Tangerang';
@@ -668,7 +742,15 @@ class Admin extends CI_Controller
         $data['sidebar_lkp_data']             = 'collapse-item active';
         $data['sidebar_lkp_print']            = 'collapse-item';
 
-        $data['sidebar_mr']          = 'nav-item';
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Laporan Kerusakan dan Perbaikan - SIM PPL Bandar Udara Budiarto Tangerang';
@@ -767,7 +849,15 @@ class Admin extends CI_Controller
         $data['sidebar_lkp_data']             = 'collapse-item';
         $data['sidebar_lkp_print']            = 'collapse-item active';
 
-        $data['sidebar_mr']          = 'nav-item';
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Laporan Kerusakan - SIM PPL Bandar Udara Budiarto Tangerang';
@@ -781,6 +871,134 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/data_laporan_kerusakan_print', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function data_mr_ccr()
+    {
+        $data['role_name_sidebar'] = 'Admin';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+
+        $data['sidebar_perawatan']            = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item active';
+        $data['sidebar_mr_collapse']      = 'collapse show';
+        $data['sidebar_mr_ccr']           = 'collapse-item active';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+        $data['title'] = 'Data Meter Reading CCR - SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['laporan_ccr'] = $this->Ccr_model->getAllCcr();
+        $data['option_alat'] = $this->Ccr_model->OptionAlat();
+        $data['option_petugas'] = $this->Ccr_model->OptionPetugas();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar1', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data_mr_ccr', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function tambah_ccr()
+    {
+        $this->form_validation->set_rules('add_nama_petugas', 'Petugas', 'required');
+        $this->form_validation->set_rules('add_nama_alat', 'Alat', 'required');
+
+        $this->form_validation->set_rules('add_tanggal', 'Tanggal', 'required');
+        $this->form_validation->set_rules('time', 'Time', 'required');
+
+        $this->form_validation->set_rules('add_indikasi', 'Indikasi', 'required');
+        $this->form_validation->set_rules('add_keterangan', 'Keterangan', 'required');
+
+        $this->form_validation->set_rules('add_supply_vr', 'Supply_vr', 'required');
+        $this->form_validation->set_rules('add_supply_vs', 'Supply_vs', 'required');
+        $this->form_validation->set_rules('add_supply_vt', 'Supply_vt', 'required');
+        $this->form_validation->set_rules('add_frek', 'Frek', 'required');
+
+        $this->form_validation->set_rules('add_step_1a', 'Step_1a', 'required');
+        $this->form_validation->set_rules('add_step_2a', 'Step_2a', 'required');
+        $this->form_validation->set_rules('add_step_3a', 'Step_3a', 'required');
+        $this->form_validation->set_rules('add_step_4a', 'Step_4a', 'required');
+        $this->form_validation->set_rules('add_step_5a', 'Step_5a', 'required');
+
+        if ($this->form_validation->run()) {
+            $add_nama_petugas = $this->input->post('add_nama_petugas');
+            $add_nama_alat = $this->input->post('add_nama_alat');
+            $add_tanggal = $this->input->post('add_tanggal');
+            $time = $this->input->post('time');
+            $add_indikasi = $this->input->post('add_indikasi');
+            $add_keterangan = $this->input->post('add_keterangan');
+            $add_supply_vr = $this->input->post('add_supply_vr');
+            $add_supply_vs = $this->input->post('add_supply_vs');
+            $add_supply_vt = $this->input->post('add_supply_vt');
+            $add_frek = $this->input->post('add_frek');
+            $add_step_1a = $this->input->post('add_step_1a');
+            $add_step_2a = $this->input->post('add_step_2a');
+            $add_step_3a = $this->input->post('add_step_3a');
+            $add_step_4a = $this->input->post('add_step_4a');
+            $add_step_5a = $this->input->post('add_step_5a');
+
+            $laporan_ccr_baru = ([
+              'nama_petugas'=>$add_nama_petugas,
+              'nama_ccr'=>$add_nama_alat,
+              'tanggal'=>$add_tanggal,
+              'jam'=>$time,
+              'indikasi'=>$add_indikasi,
+              'keterangan'=>$add_keterangan,
+              'supply_vr'=>$add_supply_vr,
+              'supply_vs'=>$add_supply_vs,
+              'supply_vt'=>$add_supply_vt,
+              'frek'=>$add_frek,
+              'step_1a'=>$add_step_1a,
+              'step_2a'=>$add_step_2a,
+              'step_3a'=>$add_step_3a,
+              'step_4a'=>$add_step_4a,
+              'step_5a'=>$add_step_5a
+            ]);
+            $data = array_merge($laporan_ccr_baru);
+            if ($this->Ccr_model->TambahCcr($data) == false) {
+                $this->session->set_flashdata('pesan_ccr', 'Data Meter Reading CCR Ditambah!');
+                $this->data_mr_ccr();
+            } else {
+                $this->data_mr_ccrn();
+            }
+        } else {
+            $this->data_mr_ccr();
+        }
+    }
+
+    public function hapus_ccr($id)
+    {
+        $this->Ccr_model->hapusDataCcr($id);
+        $this->session->set_flashdata('pesan_ccr', 'Data Meter Reading Berhasil Terhapus!');
+        $this->data_mr_ccr();
     }
 
     public function sop()
@@ -812,7 +1030,15 @@ class Admin extends CI_Controller
         $data['sidebar_lkp_data']             = 'collapse-item';
         $data['sidebar_lkp_print']            = 'collapse-item';
 
-        $data['sidebar_mr']          = 'nav-item';
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
         $data['sidebar_sop']         = 'nav-item active';
 
         $data['title'] = 'Standart Operasional - SIM PPL Bandar Udara Budiarto Tangerang';
