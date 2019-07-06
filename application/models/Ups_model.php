@@ -1,10 +1,10 @@
 <?php
 
-class Ccr_model extends CI_Model
+class Ups_model extends CI_Model
 {
-    public function getAllCcr()
+    public function getAllUps()
     {
-        $query = "SELECT mr_ccr.*,  user.name, peralatan.nama FROM mr_ccr INNER JOIN user ON mr_ccr.nama_petugas = user.id INNER JOIN peralatan ON mr_ccr.nama_ccr = peralatan.id";
+        $query = "SELECT mr_ups.*,  user.name, peralatan.nama FROM mr_ups INNER JOIN user ON mr_ups.nama_petugas = user.id INNER JOIN peralatan ON mr_ups.nama_ups = peralatan.id";
         return $this->db->query($query)->result_array();
     }
 
@@ -20,15 +20,15 @@ class Ccr_model extends CI_Model
         return $this->db->query($query)->result_array();
     }
 
-    public function TambahCcr($data)
+    public function TambahUps($data)
     {
-        $this->db->insert('mr_ccr', $data);
+        $this->db->insert('mr_ups', $data);
     }
 
-    public function hapusDataCcr($id)
+    public function hapusDataUps($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('mr_ccr');
+        $this->db->delete('mr_ups');
     }
 
     public function edit_perawatan($data, $id)

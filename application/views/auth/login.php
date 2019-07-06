@@ -32,7 +32,7 @@
           <div class="card-body p-5">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="card-header text-center col-lg-6 d-lg-block"><img class="logo-img" src="<?= base_url('assets/'); ?>img/logo.png" width="230" height="250" alt="logo"><br><span class="splash-description" style="font-size:30px;">Sistem Pemeliharaan Peralatan Listrik Bandar Udara Budiarto Tangerang</div>
+              <div class="card-header text-center col-lg-6 d-lg-block"><img class="logo-img" src="<?= base_url('assets/'); ?>img/logo.png" width="230" height="250" alt="logo"><br><span class="splash-description" style="font-size:30px;">Sistem Pemeliharaan Peralatan Listrik Bandar Udara Budiarto Curug</div>
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">

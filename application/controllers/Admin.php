@@ -13,6 +13,8 @@ class Admin extends CI_Controller
         $this->load->model('Logbook_model');
         $this->load->model('LKP_model');
         $this->load->model('Ccr_model');
+        $this->load->model('Ups_model');
+        $this->load->model('Genset_model');
         $this->load->library('form_validation');
         $this->load->library('javascript');
     }
@@ -57,7 +59,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Selamat Datang Admin di Dashboard SIM-PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Selamat Datang Admin di Dashboard SIM-PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $this->load->view('templates/header', $data);
@@ -107,7 +109,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Data Petugas - SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Data Petugas - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['petugas'] = $this->Petugas_model->getAllPetugas();
 
@@ -228,7 +230,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Data Peralatan - SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Data Peralatan - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['peralatan'] = $this->Peralatan_model->getAllPeralatan();
 
@@ -274,7 +276,7 @@ class Admin extends CI_Controller
             ]);
             $data = array_merge($peralatan_baru);
             if ($this->Peralatan_model->TambahPeralatan($data) == false) {
-                $this->session->set_flashdata('pesan', 'Data Peralatan Ditambah!');
+                $this->session->set_flashdata('pesan_alat', 'Data Peralatan Ditambah!');
                 $this->data_peralatan();
             } else {
                 $this->data_peralatan();
@@ -287,7 +289,7 @@ class Admin extends CI_Controller
     public function hapus_peralatan($id)
     {
         $this->Peralatan_model->hapusDataPeralatan($id);
-        $this->session->set_flashdata('pesan', 'Data Peralatan Berhasil Terhapus!');
+        $this->session->set_flashdata('pesan_alat', 'Data Peralatan Berhasil Terhapus!');
         $this->data_peralatan();
     }
 
@@ -305,7 +307,7 @@ class Admin extends CI_Controller
         );
 
         $this->Peralatan_model->edit_peralatan($data, $id);
-        $this->session->set_flashdata('pesan', 'Data Peralatan Berhasil Diubah!');
+        $this->session->set_flashdata('pesan_alat', 'Data Peralatan Berhasil Diubah!');
         $this->data_peralatan();
     }
 
@@ -349,7 +351,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Data Pemeliharaan- SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Data Pemeliharaan- SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['perawatan'] = $this->Perawatan_model->getAllPerawatan();
         $data['option_alat'] = $this->Perawatan_model->OptionAlat();
@@ -443,7 +445,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Data Pemeliharaan Harian - SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Data Pemeliharaan Harian - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['perawatan'] = $this->Perawatan_model->getAllPerawatan();
         $data['option_alat'] = $this->Perawatan_model->OptionAlat();
@@ -496,7 +498,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Data Pemeliharaan Mingguan - SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Data Pemeliharaan Mingguan - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['perawatan'] = $this->Perawatan_model->getAllPerawatan();
         $data['option_alat'] = $this->Perawatan_model->OptionAlat();
@@ -549,7 +551,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Data Pemeliharaan Bulanan - SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Data Pemeliharaan Bulanan - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['perawatan'] = $this->Perawatan_model->getAllPerawatan();
         $data['option_alat'] = $this->Perawatan_model->OptionAlat();
@@ -602,7 +604,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Data Facility Logbook - SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Data Facility Logbook - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['logbook'] = $this->Logbook_model->getAllLogbook();
         $data['option_alat'] = $this->Logbook_model->OptionAlat();
@@ -700,7 +702,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Data Facility Logbook - SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Data Facility Logbook - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['logbook'] = $this->Logbook_model->getAllLogbook();
         $data['option_alat'] = $this->Logbook_model->OptionAlat();
@@ -753,7 +755,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Data Laporan Kerusakan dan Perbaikan - SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Data Laporan Kerusakan dan Perbaikan - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan_kerusakan'] = $this->LKP_model->getAllLKP();
         $data['option_alat'] = $this->Logbook_model->OptionAlat();
@@ -860,7 +862,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Data Laporan Kerusakan - SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Data Laporan Kerusakan - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan_kerusakan'] = $this->LKP_model->getAllLKP();
         $data['option_alat'] = $this->Logbook_model->OptionAlat();
@@ -913,7 +915,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Data Meter Reading CCR - SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Data Meter Reading CCR - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan_ccr'] = $this->Ccr_model->getAllCcr();
         $data['option_alat'] = $this->Ccr_model->OptionAlat();
@@ -987,7 +989,7 @@ class Admin extends CI_Controller
                 $this->session->set_flashdata('pesan_ccr', 'Data Meter Reading CCR Ditambah!');
                 $this->data_mr_ccr();
             } else {
-                $this->data_mr_ccrn();
+                $this->data_mr_ccr();
             }
         } else {
             $this->data_mr_ccr();
@@ -999,6 +1001,271 @@ class Admin extends CI_Controller
         $this->Ccr_model->hapusDataCcr($id);
         $this->session->set_flashdata('pesan_ccr', 'Data Meter Reading Berhasil Terhapus!');
         $this->data_mr_ccr();
+    }
+
+    public function data_mr_ups()
+    {
+        $data['role_name_sidebar'] = 'Admin';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+
+        $data['sidebar_perawatan']            = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item active';
+        $data['sidebar_mr_collapse']      = 'collapse show';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item active';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+        $data['title'] = 'Data Meter Reading UPS - SIM PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['laporan_ups'] = $this->Ups_model->getAllUps();
+        $data['option_alat'] = $this->Ups_model->OptionAlat();
+        $data['option_petugas'] = $this->Ups_model->OptionPetugas();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar1', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data_mr_ups', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function tambah_ups()
+    {
+        $this->form_validation->set_rules('add_nama_petugas', 'Petugas', 'required');
+        $this->form_validation->set_rules('add_nama_alat', 'Alat', 'required');
+
+        $this->form_validation->set_rules('add_tanggal', 'Tanggal', 'required');
+        $this->form_validation->set_rules('time', 'Time', 'required');
+
+        $this->form_validation->set_rules('add_keterangan', 'Keterangan', 'required');
+
+        $this->form_validation->set_rules('add_input_vr', 'Input_vr', 'required');
+        $this->form_validation->set_rules('add_input_vs', 'Input_vs', 'required');
+        $this->form_validation->set_rules('add_input_vt', 'Input_vt', 'required');
+        $this->form_validation->set_rules('add_input_ar', 'Input_ar', 'required');
+        $this->form_validation->set_rules('add_input_as', 'Input_as', 'required');
+        $this->form_validation->set_rules('add_input_at', 'Input_at', 'required');
+
+        $this->form_validation->set_rules('add_output_v', 'Output_v', 'required');
+        $this->form_validation->set_rules('add_output_a', 'Output_a', 'required');
+        $this->form_validation->set_rules('add_bat_v', 'Baterai_v', 'required');
+        $this->form_validation->set_rules('add_bat_a', 'Baterai_a', 'required');
+
+        if ($this->form_validation->run()) {
+            $add_nama_petugas = $this->input->post('add_nama_petugas');
+            $add_nama_alat = $this->input->post('add_nama_alat');
+            $add_tanggal = $this->input->post('add_tanggal');
+            $time = $this->input->post('time');
+            $add_keterangan = $this->input->post('add_keterangan');
+            $add_input_vr = $this->input->post('add_input_vr');
+            $add_input_vs = $this->input->post('add_input_vs');
+            $add_input_vt = $this->input->post('add_input_vt');
+            $add_input_ar = $this->input->post('add_input_ar');
+            $add_input_as = $this->input->post('add_input_as');
+            $add_input_at = $this->input->post('add_input_at');
+            $add_output_v = $this->input->post('add_output_v');
+            $add_output_a = $this->input->post('add_output_a');
+            $add_bat_v = $this->input->post('add_bat_v');
+            $add_bat_a = $this->input->post('add_bat_a');
+
+            $laporan_ups_baru = ([
+              'nama_petugas'=>$add_nama_petugas,
+              'nama_ups'=>$add_nama_alat,
+              'tanggal'=>$add_tanggal,
+              'jam'=>$time,
+              'keterangan'=>$add_keterangan,
+              'input_vr'=>$add_input_vr,
+              'input_vs'=>$add_input_vs,
+              'input_vt'=>$add_input_vt,
+              'input_ar'=>$add_input_ar,
+              'input_as'=>$add_input_as,
+              'input_at'=>$add_input_at,
+              'output_v'=>$add_output_v,
+              'output_a'=>$add_output_a,
+              'baterai_v'=>$add_bat_v,
+              'baterai_a'=>$add_bat_a
+            ]);
+            $data = array_merge($laporan_ups_baru);
+            if ($this->Ups_model->TambahUps($data) == false) {
+                $this->session->set_flashdata('pesan_ups', 'Data Meter Reading UPS Ditambah!');
+                $this->data_mr_ups();
+            } else {
+                $this->data_mr_ups();
+            }
+        } else {
+            $this->data_mr_ups();
+        }
+    }
+
+    public function hapus_ups($id)
+    {
+        $this->Ups_model->hapusDataUps($id);
+        $this->session->set_flashdata('pesan_ups', 'Data Meter Reading Berhasil Terhapus!');
+        $this->data_mr_ups();
+    }
+
+    public function data_mr_genset()
+    {
+        $data['role_name_sidebar'] = 'Admin';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+
+        $data['sidebar_perawatan']            = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item active';
+        $data['sidebar_mr_collapse']      = 'collapse show';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item active';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+        $data['title'] = 'Data Meter Reading Genset - SIM PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['laporan_genset'] = $this->Genset_model->getAllGenset();
+        $data['option_alat'] = $this->Genset_model->OptionAlat();
+        $data['option_petugas'] = $this->Genset_model->OptionPetugas();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar1', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data_mr_genset', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function tambah_genset()
+    {
+        $this->form_validation->set_rules('add_nama_petugas', 'Petugas', 'required');
+        $this->form_validation->set_rules('add_nama_alat', 'Alat', 'required');
+
+        $this->form_validation->set_rules('add_tanggal', 'Tanggal', 'required');
+        $this->form_validation->set_rules('time', 'Time', 'required');
+
+        $this->form_validation->set_rules('add_penggunaan', 'Penggunaan', 'required');
+        $this->form_validation->set_rules('time2', 'Time2', 'required');
+        $this->form_validation->set_rules('add_keterangan', 'Keterangan', 'required');
+
+        $this->form_validation->set_rules('add_generator_vr', 'Generator_vr', 'required');
+        $this->form_validation->set_rules('add_generator_vs', 'Generator_vs', 'required');
+        $this->form_validation->set_rules('add_generator_vt', 'Generator_vt', 'required');
+        $this->form_validation->set_rules('add_generator_ar', 'Generator_ar', 'required');
+        $this->form_validation->set_rules('add_generator_as', 'Generator_as', 'required');
+        $this->form_validation->set_rules('add_generator_at', 'Generator_at', 'required');
+        $this->form_validation->set_rules('add_frek', 'Frekuensi', 'required');
+
+        $this->form_validation->set_rules('add_engine_temp', 'Engine_temp', 'required');
+        $this->form_validation->set_rules('add_engine_oil', 'Engine_oil', 'required');
+        $this->form_validation->set_rules('add_bat_v', 'Baterai_v', 'required');
+        $this->form_validation->set_rules('add_bat_a', 'Baterai_a', 'required');
+
+        if ($this->form_validation->run()) {
+            $add_nama_petugas = $this->input->post('add_nama_petugas');
+            $add_nama_alat = $this->input->post('add_nama_alat');
+            $add_tanggal = $this->input->post('add_tanggal');
+            $time = $this->input->post('time');
+            $add_penggunaan = $this->input->post('add_penggunaan');
+            $time2 = $this->input->post('time2');
+            $add_keterangan = $this->input->post('add_keterangan');
+            $add_generator_vr = $this->input->post('add_generator_vr');
+            $add_generator_vs = $this->input->post('add_generator_vs');
+            $add_generator_vt = $this->input->post('add_generator_vt');
+            $add_generator_ar = $this->input->post('add_generator_ar');
+            $add_generator_as = $this->input->post('add_generator_as');
+            $add_generator_at = $this->input->post('add_generator_at');
+            $add_frek = $this->input->post('add_frek');
+            $add_engine_temp = $this->input->post('add_engine_temp');
+            $add_engine_oil = $this->input->post('add_engine_oil');
+            $add_bat_v = $this->input->post('add_bat_v');
+            $add_bat_a = $this->input->post('add_bat_a');
+
+            $laporan_genset_baru = ([
+              'nama_petugas'=>$add_nama_petugas,
+              'nama_genset'=>$add_nama_alat,
+              'tanggal'=>$add_tanggal,
+              'jam'=>$time,
+              'penggunaan'=>$add_penggunaan,
+              'jam_operasi'=>$time2,
+              'ket_operasi'=>$add_keterangan,
+              'generator_vr'=>$add_generator_vr,
+              'generator_vs'=>$add_generator_vs,
+              'generator_vt'=>$add_generator_vt,
+              'generator_ar'=>$add_generator_ar,
+              'generator_as'=>$add_generator_as,
+              'generator_at'=>$add_generator_at,
+              'frek'=>$add_frek,
+              'engine_temp'=>$add_engine_temp,
+              'engine_oil'=>$add_engine_oil,
+              'baterai_v'=>$add_bat_v,
+              'baterai_a'=>$add_bat_a
+            ]);
+            $data = array_merge($laporan_genset_baru);
+            if ($this->Genset_model->TambahGenset($data) == false) {
+                $this->session->set_flashdata('pesan_genset', 'Data Meter Reading Genset Ditambah!');
+                $this->data_mr_genset();
+            } else {
+                $this->data_mr_genset();
+            }
+        } else {
+            $this->data_mr_genset();
+        }
+    }
+
+    public function hapus_genset($id)
+    {
+        $this->Genset_model->hapusDataGenset($id);
+        $this->session->set_flashdata('pesan_genset', 'Data Meter Reading Berhasil Terhapus!');
+        $this->data_mr_genset();
     }
 
     public function sop()
@@ -1041,7 +1308,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item active';
 
-        $data['title'] = 'Standart Operasional - SIM PPL Bandar Udara Budiarto Tangerang';
+        $data['title'] = 'Standart Operasional - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $this->load->view('templates/header', $data);

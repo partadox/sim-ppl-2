@@ -115,9 +115,9 @@
         <h6 class="collapse-header">Submenu:</h6>
         <a class="<?= $sidebar_mr_ccr; ?>" href="<?= base_url('admin/data_mr_ccr'); ?>">Data CCR</a>
         <a class="<?= $sidebar_mr_ccr_print; ?>" href="#">Print Data CCR</a>
-        <a class="<?= $sidebar_mr_ups; ?>" href="#">Data UPS</a>
+        <a class="<?= $sidebar_mr_ups; ?>" href="<?= base_url('admin/data_mr_ups'); ?>">Data UPS</a>
         <a class="<?= $sidebar_mr_ups_print; ?>" href="#">Print Data UPS</a>
-        <a class="<?= $sidebar_mr_genset; ?>" href="#">Data Genset</a>
+        <a class="<?= $sidebar_mr_genset; ?>" href="<?= base_url('admin/data_mr_genset'); ?>">Data Genset</a>
         <a class="<?= $sidebar_mr_genset_print; ?>" href="#">Print Data Genset</a>
       </div>
     </div>

@@ -2,7 +2,7 @@
 <div class="container-fluid dashboard-content">
   <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-<?php if ($pesan = $this->session->flashdata('pesan')): ?>
+<?php if ($pesan = $this->session->flashdata('pesan_alat')): ?>
   <div class="form-group">
     <div class="col-lg-12">
       <div class="alert alert-dismissible alert-success">

@@ -105,7 +105,7 @@
              <?= form_error('time', '<small class="text-danger">', '</small>'); ?>
           </div>
         </div>
-        <div class="row">
+        <div class="row mt-4">
           <div class="col">
             <label>Nama Alat</label>
             <select class="custom-select mr-sm-2" id="add_nama_alat" name="add_nama_alat">
