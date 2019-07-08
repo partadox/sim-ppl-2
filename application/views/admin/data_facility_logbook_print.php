@@ -39,11 +39,11 @@
               <thead>
                 <tr>
                   <th width="5%">#</th>
+                  <th width="10%">Nama Alat</th>
                   <th width="10%">Tanggal</th>
                   <th width="10%">Jam</th>
-                  <th width="10%">Nama Alat</th>
-                  <th width="10%">Petugas</th>
                   <th width="10%">Catatan</th>
+                  <th width="10%">Petugas</th>
                   <th width="10%">Status Pemeriksaan</th>
                   <th width="10%">Pemeriksa</th>
                   <th width="10%">Tgl/Jam Diperiksa</th>
@@ -54,11 +54,11 @@
                 <?php foreach ($logbook as $log) : ?>
                   <tr>
                     <th scope="row"><?= $i; ?></th>
+                    <td><?= $log['nama']; ?> </td>
                     <td><?= $log['waktu']; ?> </td>
                     <td><?= $log['jam']; ?> </td>
-                    <td><?= $log['nama']; ?> </td>
-                    <td><?= $log['name']; ?> </td>
                     <td><?= $log['catatan']; ?> </td>
+                    <td><?= $log['name']; ?> </td>
                     <td><?= $log['status']; ?></td>
                     <td><?= $log['name']; ?> </td>
                     <td><?= $log['waktu_periksa']; ?> </td>

@@ -10,7 +10,7 @@ class Ups_model extends CI_Model
 
     public function OptionAlat()
     {
-        $query = "SELECT * FROM peralatan WHERE kategori_id='1' ORDER BY peralatan.nama ASC";
+        $query = "SELECT * FROM peralatan WHERE kategori_id='2' ORDER BY peralatan.nama DESC";
         return $this->db->query($query)->result_array();
     }
 

@@ -108,6 +108,31 @@
     });
 </script>
 
+<!-- Get data for edit data suku cadang scripts -->
+<script>
+    $(document).ready(function() {
+        // Untuk sunting
+        $('#skcadang-modal-edit').on('show.bs.modal', function (event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var modal          = $(this)
+
+            // Isi nilai pada field
+            modal.find('#id').attr("value",div.data('id'));
+            modal.find('#tanggal_br').attr("value",div.data('tanggal_br'));
+            modal.find('#kode').attr("value",div.data('kode'));
+            modal.find('#nama_skcadang').attr("value",div.data('nama_skcadang'));
+            modal.find('#merk').attr("value",div.data('merk'));
+            modal.find('#tipe').attr("value",div.data('tipe'));
+            modal.find('#daya').attr("value",div.data('daya'));
+            modal.find('#tegangan').attr("value",div.data('tegangan'));
+            modal.find('#arus').attr("value",div.data('arus'));
+            modal.find('#jumlah').attr("value",div.data('jumlah'));
+            modal.find('#keterangan').attr("value",div.data('keterangan'));
+        });
+    });
+</script>
+
+
 <!-- Print -->
 <script>
 	$(document).ready(function(){

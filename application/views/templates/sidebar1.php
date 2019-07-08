@@ -56,6 +56,23 @@
     </div>
   </li>
 
+  <!-- Nav Item - Suku Cadang -->
+  <li class="<?= $sidebar_skcadang; ?>">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCadang" aria-expanded="true" aria-controls="collapseCadang">
+      <i class="fas fa-toolbox"></i>
+      <span>Suku Cadang</span>
+    </a>
+    <div id="collapseCadang" class="<?= $sidebar_skcadang_collapse; ?>" aria-labelledby="headingCadang" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        <h6 class="collapse-header">Submenu:</h6>
+        <a class="<?= $sidebar_skcadang_data; ?>" href="<?= base_url('admin/data_skcadang'); ?>">Data Suku Cadang</a>
+        <a class="<?= $sidebar_skcadang_print; ?>" href="#">Print Data Sk.Cadang</a>
+        <a class="<?= $sidebar_skcadang_keluar; ?>" href="<?= base_url('admin/data_skcadang_keluar'); ?>">Data Sk.Cadang Keluar</a>
+        <a class="<?= $sidebar_skcadang_keluar_print; ?>" href="#">Print Sk.Cadang Keluar</a>
+      </div>
+    </div>
+  </li>
+
   <!-- Nav Item - Perawatan-->
   <li class="<?= $sidebar_perawatan; ?>">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePerawatan" aria-expanded="true" aria-controls="collapsePerawatan">
