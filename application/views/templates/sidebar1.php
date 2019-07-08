@@ -51,7 +51,7 @@
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Submenu:</h6>
         <a class="<?= $sidebar_peralatan_semua; ?>" href="<?= base_url('admin/data_peralatan'); ?>">Semua Peralatan</a>
-      <!-- <a class="collapse-item" href="#">Ambil Peralatan</a> -->
+        <a class="<?= $sidebar_peralatan_print; ?>" href="<?= base_url('admin/data_peralatan_print'); ?>">Print Data Peralatan</a>
       </div>
     </div>
   </li>
@@ -66,9 +66,9 @@
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Submenu:</h6>
         <a class="<?= $sidebar_skcadang_data; ?>" href="<?= base_url('admin/data_skcadang'); ?>">Data Suku Cadang</a>
-        <a class="<?= $sidebar_skcadang_print; ?>" href="#">Print Data Sk.Cadang</a>
+        <a class="<?= $sidebar_skcadang_print; ?>" href="<?= base_url('admin/data_skcadang_print'); ?>">Print Data Sk.Cadang</a>
         <a class="<?= $sidebar_skcadang_keluar; ?>" href="<?= base_url('admin/data_skcadang_keluar'); ?>">Data Sk.Cadang Keluar</a>
-        <a class="<?= $sidebar_skcadang_keluar_print; ?>" href="#">Print Sk.Cadang Keluar</a>
+        <a class="<?= $sidebar_skcadang_keluar_print; ?>" href="<?= base_url('admin/data_skcadang_keluar_print'); ?>">Print Sk.Cadang Keluar</a>
       </div>
     </div>
   </li>
@@ -131,11 +131,11 @@
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Submenu:</h6>
         <a class="<?= $sidebar_mr_ccr; ?>" href="<?= base_url('admin/data_mr_ccr'); ?>">Data CCR</a>
-        <a class="<?= $sidebar_mr_ccr_print; ?>" href="#">Print Data CCR</a>
+        <a class="<?= $sidebar_mr_ccr_print; ?>" href="<?= base_url('admin/data_mr_ccr_print'); ?>">Print Data CCR</a>
         <a class="<?= $sidebar_mr_ups; ?>" href="<?= base_url('admin/data_mr_ups'); ?>">Data UPS</a>
-        <a class="<?= $sidebar_mr_ups_print; ?>" href="#">Print Data UPS</a>
+        <a class="<?= $sidebar_mr_ups_print; ?>" href="<?= base_url('admin/data_mr_ups_print'); ?>">Print Data UPS</a>
         <a class="<?= $sidebar_mr_genset; ?>" href="<?= base_url('admin/data_mr_genset'); ?>">Data Genset</a>
-        <a class="<?= $sidebar_mr_genset_print; ?>" href="#">Print Data Genset</a>
+        <a class="<?= $sidebar_mr_genset_print; ?>" href="<?= base_url('admin/data_mr_genset_print'); ?>">Print Data Genset</a>
       </div>
     </div>
   </li>

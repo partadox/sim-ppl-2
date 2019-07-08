@@ -32,6 +32,7 @@
                   <th width="10%">Petugas</th>
                   <th width="10%">Kegiatan</th>
                   <th width="10%">Keterangan</th>
+                  <th width="10%">Status</th>
                   <th width="10%">Action</th>
                 </tr>
               </thead>
@@ -45,6 +46,11 @@
                     <td><?= $prwt['name']; ?> </td>
                     <td><?= $prwt['kegiatan']; ?> </td>
                     <td><?= $prwt['keterangan']; ?> </td>
+                    <td><?php if ($prwt['status_id'] == 1) {
+    echo "<h2 class='badge badge-pill badge-danger'>Belum Diperiksa</h2>";
+} else {
+    echo "<h2 class='badge badge-pill badge-success'>Sudah Diperiksa</h2>";
+}; ?> </td>
                     <td>
                       <a href="<?= base_url(); ?>admin/hapus_perawatan/<?= $prwt['id']; ?>" class="badge badge-danger" onclick="return confirm('Apa anda yakin menghapus data perawatan ini?');">Hapus</a>
                     </td>

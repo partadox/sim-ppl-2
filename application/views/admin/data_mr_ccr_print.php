@@ -2,7 +2,7 @@
 <div class="container-fluid dashboard-content">
   <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-<?php if ($pesan = $this->session->flashdata('pesan_logbook')): ?>
+<?php if ($pesan = $this->session->flashdata('pesan_ccr')): ?>
   <div class="form-group">
     <div class="col-lg-12">
       <div class="alert alert-dismissible alert-success">
@@ -14,7 +14,7 @@
 <?php endif ?>
 <div class="col-lg-12">
     <div class="form-group">
-        <label>Pilih Bulan Laporan</label>
+        <label>Masukan Bulan Laporan</label>
         <div class="row">
           <div class="col">
             <input type="month" class="form-control" id="date" name="date"  data-date-format="DD MMMM YYYY">
@@ -43,38 +43,62 @@
     .tg .tg-0lax{text-align:left;vertical-align:top}
     </style>
   <div class="container-fluid">
-  <div class="card mb-4" >
+  <div class="card shadow mb-4">
         <div class="card-body">
           <div class="table-responsive" id="table">
-            <table class="tg table-bordered"  width="100%" cellspacing="0">
+            <table class="tg table-hover" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th width="5%">No</th>
-                  <th width="10%">Tanggal</th>
-                  <th width="10%">Jam</th>
-                  <th width="10%">Catatan</th>
-                  <th width="10%">Petugas</th>
-                  <th width="10%">Status Pemeriksaan</th>
-                  <th width="10%">Pemeriksa</th>
-                  <th width="10%">Tgl/Jam Diperiksa</th>
+                  <th class="tg-zoz6" rowspan="3">No</th>
+                  <th class="tg-uys7" rowspan="3">Nama CCR</th>
+                  <th class="tg-uys7" rowspan="3">Tanggal</th>
+                  <th class="tg-uys7" rowspan="3">Jam</th>
+                  <th class="tg-c3ow" colspan="3">Supply</th>
+                  <th class="tg-c3ow" colspan="5">Arus per Step</th>
+                  <th class="tg-uys7" rowspan="3">Frek</th>
+                  <th class="tg-uys7" rowspan="3">Indikasi</th>
+                  <th class="tg-uys7" rowspan="3">Keterangan</th>
+                  <th class="tg-uys7" rowspan="3">Petugas</th>
+                </tr>
+                <tr>
+                  <td class="tg-c3ow" colspan="3">Tegangan (Volt)</td>
+                  <td class="tg-c3ow" colspan="5">Ampere</td>
+                </tr>
+                <tr>
+                  <td class="tg-c3ow">R</td>
+                  <td class="tg-c3ow">S</td>
+                  <td class="tg-c3ow">T</td>
+                  <td class="tg-c3ow">1</td>
+                  <td class="tg-c3ow">2</td>
+                  <td class="tg-c3ow">3</td>
+                  <td class="tg-c3ow">4</td>
+                  <td class="tg-c3ow">5</td>
                 </tr>
               </thead>
               <tbody>
                 <h1><center><font size="4" class="mt-1" face="arial">BANDAR UDARA BUDIARTO CURUG</font></center></h1>
-                <center><b><font size="3" class="mt-1" face="arial">Laporan Data Facility Log Book Bulan</font></b></center><br>
+                <center><b><font size="3" class="mt-1" face="arial">Lapran Data Meter Reading CCR Bulan </font></b></center><br>
                 <center><b><font size="2" class="mt-1" face="arial">Jl. Raya PLP Tromol Pos 08, Curug, Serdang Wetan, Tangerang, Banten 15810<b></center><br>
-                <hr><width="100" height="75"></hr>
+                  <hr><width="100" height="75"></hr>
                 <?php $i = 1; ?>
-                <?php foreach ($logbook as $log) : ?>
+                <?php foreach ($laporan_ccr as $ccr) : ?>
                   <tr>
                     <th scope="row"><?= $i; ?></th>
-                    <td><?= $log['waktu']; ?> </td>
-                    <td><?= $log['jam']; ?> </td>
-                    <td><?= $log['catatan']; ?> </td>
-                    <td><?= $log['name']; ?> </td>
-                    <td><?= $log['status']; ?></td>
-                    <td><?= $log['name']; ?> </td>
-                    <td><?= $log['waktu_periksa']; ?> </td>
+                    <td><?= $ccr['nama']; ?> </td>
+                    <td><?= $ccr['tanggal']; ?> </td>
+                    <td><?= $ccr['jam']; ?> </td>
+                    <td><?= $ccr['supply_vr']; ?> </td>
+                    <td><?= $ccr['supply_vs']; ?> </td>
+                    <td><?= $ccr['supply_vt']; ?> </td>
+                    <td><?= $ccr['step_1a']; ?> </td>
+                    <td><?= $ccr['step_2a']; ?> </td>
+                    <td><?= $ccr['step_3a']; ?> </td>
+                    <td><?= $ccr['step_4a']; ?> </td>
+                    <td><?= $ccr['step_5a']; ?> </td>
+                    <td><?= $ccr['frek']; ?> </td>
+                    <td><?= $ccr['indikasi']; ?> </td>
+                    <td><?= $ccr['keterangan']; ?> </td>
+                    <td><?= $ccr['name']; ?> </td>
                   </tr>
                   <?php $i++; ?>
                 <?php endforeach; ?>

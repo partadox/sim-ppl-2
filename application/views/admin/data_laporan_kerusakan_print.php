@@ -22,7 +22,7 @@
           </div>
           <div class="col">
               <button class="btn btn-primary mb-3" type="button" id="cari" name="cari"><i class="fas fa-search"></i>Cari Data (BELUM)</button>
-                <button class="btn btn-success mb-3 ml-3" type="button" id="add_button" onclick="printDiv('printableArea')"><i class="fas fa-print"></i></i>Print Data</button>
+                <button class="btn btn-success mb-3 ml-3" type="button" id="add_button" onclick="printDiv('table')"><i class="fas fa-print"></i></i>Print Data</button>
           </div>
       </div>
     </div>
@@ -31,14 +31,25 @@
   <!-- ============================================================== -->
   <!-- TABEL-->
   <!-- ============================================================== -->
+  <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+    .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+    .tg .tg-uys7{border-color:inherit;text-align:center}
+    .tg .tg-zoz6{font-size:11px;border-color:inherit;text-align:center}
+    .tg .tg-xldj{border-color:inherit;text-align:left}
+    .tg .tg-s268{text-align:left}
+    .tg .tg-0lax{text-align:left;vertical-align:top}
+    </style>
   <div class="container-fluid">
-  <div class="card mb-4" id="printableArea">
+  <div class="card mb-4">
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-hover table-bordered"  width="100%" cellspacing="0">
+          <div class="table-responsive" id="table">
+            <table class="tg table-bordered"  width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th width="5%">#</th>
+                  <th width="5%">No</th>
                   <th width="5%">Tanggal</th>
                   <th width="10%">Lokasi</th>
                   <th width="10%">Uraian</th>
@@ -52,6 +63,10 @@
                 </tr>
               </thead>
               <tbody>
+                <h1><center><font size="4" class="mt-1" face="arial">BANDAR UDARA BUDIARTO CURUG</font></center></h1>
+                <center><b><font size="3" class="mt-1" face="arial">Laporan Data Kerusakan Bulan </font></b></center><br>
+                <center><b><font size="2" class="mt-1" face="arial">Jl. Raya PLP Tromol Pos 08, Curug, Serdang Wetan, Tangerang, Banten 15810<b></center><br>
+                <hr><width="100" height="75"></hr>
                 <?php $i = 1; ?>
                 <?php foreach ($laporan_kerusakan as $lkp) : ?>
                   <tr>

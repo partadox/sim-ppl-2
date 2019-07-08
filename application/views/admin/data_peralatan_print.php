@@ -2,7 +2,7 @@
 <div class="container-fluid dashboard-content">
   <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-<?php if ($pesan = $this->session->flashdata('pesan_perawatan')): ?>
+<?php if ($pesan = $this->session->flashdata('pesan_alat')): ?>
   <div class="form-group">
     <div class="col-lg-12">
       <div class="alert alert-dismissible alert-success">
@@ -14,10 +14,10 @@
 <?php endif ?>
 <div class="col-lg-12">
     <div class="form-group">
-        <label>Masukan Tanggal Laporan</label>
+        <label>Masukan Bulan Laporan</label>
         <div class="row">
           <div class="col">
-            <input type="date" class="form-control" id="date" name="date"  data-date-format="DD MMMM YYYY">
+            <input type="month" class="form-control" id="date" name="date"  data-date-format="DD MMMM YYYY">
             <?= form_error('add_tanggal', '<small class="text-danger">', '</small>'); ?>
           </div>
           <div class="col">
@@ -42,35 +42,43 @@
     .tg .tg-s268{text-align:left}
     .tg .tg-0lax{text-align:left;vertical-align:top}
     </style>
-    <div class="container-fluid">
-      <div class="card mb-4">
+  <div class="container-fluid">
+  <div class="card mb-4">
         <div class="card-body">
           <div class="table-responsive" id="table">
-            <table class="tg table-bordered" width="100%" cellspacing="0">
+            <table class="tg table-bordered"  width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th width="5%">No</th>
-                  <th width="15%">Tanggal</th>
-                  <th width="10%">Nama Alat</th>
-                  <th width="10%">Petugas</th>
-                  <th width="10%">Kegiatan</th>
-                  <th width="10%">Keterangan</th>
+                  <th width="3%">No</th>
+                  <th width="20%">Nama</th>
+                  <th width="10%">Kategori</th>
+                  <th width="15%">Merk</th>
+                  <th width="10%">Tipe</th>
+                  <th width="10%">Data Teknis</th>
+                  <th width="5%">Tahun Instalasi</th>
+                  <th width="5%">Jumlah</th>
+                  <th width="5%">Kondisi</th>
+                  <th width="15%">Keterangan</th>
                 </tr>
               </thead>
               <tbody>
                 <h1><center><font size="4" class="mt-1" face="arial">BANDAR UDARA BUDIARTO CURUG</font></center></h1>
-                <center><b><font size="3" class="mt-1" face="arial">Laporan Data Pemeliharaan Tanggal</font></b></center><br>
+                <center><b><font size="3" class="mt-1" face="arial">Laporan Data Peralatan Bulan</font></b></center><br>
                 <center><b><font size="2" class="mt-1" face="arial">Jl. Raya PLP Tromol Pos 08, Curug, Serdang Wetan, Tangerang, Banten 15810<b></center><br>
                 <hr><width="100" height="75"></hr>
                 <?php $i = 1; ?>
-                <?php foreach ($perawatan as $prwt) : ?>
+                <?php foreach ($peralatan as $prt) : ?>
                   <tr>
                     <th scope="row"><?= $i; ?></th>
-                    <td><?= $prwt['tanggal']; ?> </td>
-                    <td><?= $prwt['nama']; ?> </td>
-                    <td><?= $prwt['name']; ?> </td>
-                    <td><?= $prwt['kegiatan']; ?> </td>
-                    <td><?= $prwt['keterangan']; ?> </td>
+                    <td><?= $prt['nama']; ?> </td>
+                    <td><?= $prt['kategori']; ?> </td>
+                    <td><?= $prt['merk']; ?> </td>
+                    <td><?= $prt['tipe']; ?> </td>
+                    <td><?= $prt['data_teknis']; ?> </td>
+                    <td><?= $prt['tahun_install']; ?> </td>
+                    <td><?= $prt['jumlah']; ?> </td>
+                    <td><?= $prt['kondisi']; ?> </td>
+                    <td><?= $prt['keterangan']; ?> </td>
                   </tr>
                   <?php $i++; ?>
                 <?php endforeach; ?>
@@ -78,6 +86,12 @@
             </table>
           </div>
         </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- TABLE  -->
+  <!-- ============================================================== -->
+
+
+  <!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->
-</div>

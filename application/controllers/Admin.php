@@ -7,6 +7,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         cek_login();
+        $this->load->model('Dashboard_model');
         $this->load->model('Petugas_model');
         $this->load->model('Peralatan_model');
         $this->load->model('Skcadang_model');
@@ -31,6 +32,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']   = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -69,6 +71,16 @@ class Admin extends CI_Controller
 
         $data['title'] = 'Selamat Datang Admin di Dashboard SIM-PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['petugas'] = $this->Dashboard_model->countPetugas();
+        $data['peralatan'] = $this->Dashboard_model->countPeralatan();
+        $data['skcadang'] = $this->Dashboard_model->countSkcadang();
+        $data['skcadang_keluar'] = $this->Dashboard_model->countSkcadang_keluar();
+        $data['perawatan'] = $this->Dashboard_model->countPerawatan();
+        $data['fl'] = $this->Dashboard_model->countfl();
+        $data['lkp'] = $this->Dashboard_model->countlkp();
+        $data['ccr'] = $this->Dashboard_model->countccr();
+        $data['ups'] = $this->Dashboard_model->countups();
+        $data['genset'] = $this->Dashboard_model->countgenset();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar1', $data);
@@ -88,6 +100,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']   = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -215,7 +228,8 @@ class Admin extends CI_Controller
 
         $data['sidebar_peralatan']   = 'nav-item active';
         $data['sidebar_peralatan_collapse']   = 'collapse show';
-        $data['sidebar_peralatan_semua']   = 'collapse-item active';
+        $data['sidebar_peralatan_semua']      = 'collapse-item active';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -333,6 +347,65 @@ class Admin extends CI_Controller
         $this->data_peralatan();
     }
 
+    public function data_peralatan_print()
+    {
+        $data['role_name_sidebar'] = 'Admin';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item active';
+        $data['sidebar_peralatan_collapse']   = 'collapse show';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item active';
+
+        $data['sidebar_skcadang']            = 'nav-item';
+        $data['sidebar_skcadang_collapse']   = 'collapse';
+        $data['sidebar_skcadang_data']       = 'collapse-item';
+        $data['sidebar_skcadang_print']      = 'collapse-item';
+        $data['sidebar_skcadang_keluar']     = 'collapse-item';
+        $data['sidebar_skcadang_keluar_print'] = 'collapse-item';
+
+        $data['sidebar_perawatan']            = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+        $data['title'] = 'Data Peralatan Print - SIM PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['peralatan'] = $this->Peralatan_model->getAllPeralatan();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar1', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data_peralatan_print', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function data_skcadang()
     {
         $data['role_name_sidebar'] = 'Admin';
@@ -344,6 +417,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item active';
         $data['sidebar_skcadang_collapse']   = 'collapse show';
@@ -484,6 +558,65 @@ class Admin extends CI_Controller
         $this->data_skcadang();
     }
 
+    public function data_skcadang_print()
+    {
+        $data['role_name_sidebar'] = 'Admin';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
+
+        $data['sidebar_skcadang']            = 'nav-item active';
+        $data['sidebar_skcadang_collapse']   = 'collapse show';
+        $data['sidebar_skcadang_data']       = 'collapse-item';
+        $data['sidebar_skcadang_print']      = 'collapse-item active';
+        $data['sidebar_skcadang_keluar']     = 'collapse-item';
+        $data['sidebar_skcadang_keluar_print'] = 'collapse-item';
+
+        $data['sidebar_perawatan']            = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+        $data['title'] = 'Data Suku Cadang Print - SIM PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['skcadang'] = $this->Skcadang_model->getAllSkcadang();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar1', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data_skcadang_print', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function data_skcadang_keluar()
     {
         $data['role_name_sidebar'] = 'Admin';
@@ -495,6 +628,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item active';
         $data['sidebar_skcadang_collapse']   = 'collapse show';
@@ -550,6 +684,65 @@ class Admin extends CI_Controller
         $this->data_skcadang_keluar();
     }
 
+    public function data_skcadang_keluar_print()
+    {
+        $data['role_name_sidebar'] = 'Admin';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
+
+        $data['sidebar_skcadang']            = 'nav-item active';
+        $data['sidebar_skcadang_collapse']   = 'collapse show';
+        $data['sidebar_skcadang_data']       = 'collapse-item';
+        $data['sidebar_skcadang_print']      = 'collapse-item';
+        $data['sidebar_skcadang_keluar']     = 'collapse-item';
+        $data['sidebar_skcadang_keluar_print'] = 'collapse-item active';
+
+        $data['sidebar_perawatan']            = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+        $data['title'] = 'Data Keluar Suku Cadang Print - SIM PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['skcadang_keluar'] = $this->Skcadang_model->getAllSkcadangKeluar();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar1', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data_skcadang_keluar_print', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function data_perawatan()
     {
         $data['role_name_sidebar'] = 'Admin';
@@ -561,6 +754,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -630,7 +824,8 @@ class Admin extends CI_Controller
               'nama_alat'=>$add_nama_alat,
               'nama_petugas'=>$add_nama_petugas,
               'kegiatan'=>$add_kegiatan,
-              'keterangan'=>$add_keterangan
+              'keterangan'=>$add_keterangan,
+              'status_id'=>'1'
             ]);
             $data = array_merge($perawatan_baru);
             if ($this->Perawatan_model->TambahPerawatan($data) == false) {
@@ -662,6 +857,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -722,6 +918,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -782,6 +979,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -842,6 +1040,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -944,6 +1143,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -1004,6 +1204,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -1118,6 +1319,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -1178,6 +1380,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -1302,6 +1505,67 @@ class Admin extends CI_Controller
         $this->data_mr_ccr();
     }
 
+    public function data_mr_ccr_print()
+    {
+        $data['role_name_sidebar'] = 'Admin';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
+
+        $data['sidebar_skcadang']            = 'nav-item';
+        $data['sidebar_skcadang_collapse']   = 'collapse';
+        $data['sidebar_skcadang_data']       = 'collapse-item';
+        $data['sidebar_skcadang_print']      = 'collapse-item';
+        $data['sidebar_skcadang_keluar']     = 'collapse-item';
+        $data['sidebar_skcadang_keluar_print'] = 'collapse-item';
+
+        $data['sidebar_perawatan']            = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item active';
+        $data['sidebar_mr_collapse']      = 'collapse show';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item active';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+        $data['title'] = 'Data Meter Reading CCR Print - SIM PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['laporan_ccr'] = $this->Ccr_model->getAllCcr();
+        $data['option_alat'] = $this->Ccr_model->OptionAlat();
+        $data['option_petugas'] = $this->Ccr_model->OptionPetugas();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar1', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data_mr_ccr_print', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function data_mr_ups()
     {
         $data['role_name_sidebar'] = 'Admin';
@@ -1313,6 +1577,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -1437,6 +1702,67 @@ class Admin extends CI_Controller
         $this->data_mr_ups();
     }
 
+    public function data_mr_ups_print()
+    {
+        $data['role_name_sidebar'] = 'Admin';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
+
+        $data['sidebar_skcadang']            = 'nav-item';
+        $data['sidebar_skcadang_collapse']   = 'collapse';
+        $data['sidebar_skcadang_data']       = 'collapse-item';
+        $data['sidebar_skcadang_print']      = 'collapse-item';
+        $data['sidebar_skcadang_keluar']     = 'collapse-item';
+        $data['sidebar_skcadang_keluar_print'] = 'collapse-item';
+
+        $data['sidebar_perawatan']            = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item active';
+        $data['sidebar_mr_collapse']      = 'collapse show';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item active';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+        $data['title'] = 'Data Meter Reading UPS Print - SIM PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['laporan_ups'] = $this->Ups_model->getAllUps();
+        $data['option_alat'] = $this->Ups_model->OptionAlat();
+        $data['option_petugas'] = $this->Ups_model->OptionPetugas();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar1', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data_mr_ups_print', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function data_mr_genset()
     {
         $data['role_name_sidebar'] = 'Admin';
@@ -1448,6 +1774,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
@@ -1581,6 +1908,67 @@ class Admin extends CI_Controller
         $this->data_mr_genset();
     }
 
+    public function data_mr_genset_print()
+    {
+        $data['role_name_sidebar'] = 'Admin';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
+
+        $data['sidebar_skcadang']            = 'nav-item';
+        $data['sidebar_skcadang_collapse']   = 'collapse';
+        $data['sidebar_skcadang_data']       = 'collapse-item';
+        $data['sidebar_skcadang_print']      = 'collapse-item';
+        $data['sidebar_skcadang_keluar']     = 'collapse-item';
+        $data['sidebar_skcadang_keluar_print'] = 'collapse-item';
+
+        $data['sidebar_perawatan']            = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item active';
+        $data['sidebar_mr_collapse']      = 'collapse show';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item active';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+        $data['title'] = 'Data Meter Reading Genset Print - SIM PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['laporan_genset'] = $this->Genset_model->getAllGenset();
+        $data['option_alat'] = $this->Genset_model->OptionAlat();
+        $data['option_petugas'] = $this->Genset_model->OptionPetugas();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar1', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/data_mr_genset_print', $data);
+        $this->load->view('templates/footer');
+    }
+
     public function sop()
     {
         $data['role_name_sidebar'] = 'Admin';
@@ -1592,6 +1980,7 @@ class Admin extends CI_Controller
         $data['sidebar_peralatan']            = 'nav-item';
         $data['sidebar_peralatan_collapse']   = 'collapse';
         $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
 
         $data['sidebar_skcadang']            = 'nav-item';
         $data['sidebar_skcadang_collapse']   = 'collapse';
