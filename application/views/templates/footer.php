@@ -118,7 +118,7 @@
 
             // Isi nilai pada field
             modal.find('#id').attr("value",div.data('id'));
-            modal.find('#tanggal_br').attr("value",div.data('tanggal_br'));
+            modal.find('#tanggal_br').attr("value",div.data('tanggal'));
             modal.find('#kode').attr("value",div.data('kode'));
             modal.find('#nama_skcadang').attr("value",div.data('nama_skcadang'));
             modal.find('#merk').attr("value",div.data('merk'));

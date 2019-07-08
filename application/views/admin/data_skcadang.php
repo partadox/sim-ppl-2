@@ -59,7 +59,7 @@
                     <td>
                       <a href="javascript:;"
                           data-id="<?= $prt['id'] ?>"
-                          data-tanggal_br="<?= $prt['tanggal_br'] ?>"
+                          data-tanggal="<?= $prt['tanggal_br'] ?>"
                           data-kode="<?= $prt['kode'] ?>"
                           data-nama_skcadang="<?= $prt['nama_skcadang'] ?>"
                           data-merk="<?= $prt['merk'] ?>"
