@@ -4,7 +4,7 @@ class Logbook_model extends CI_Model
 {
     public function getAllLogbook()
     {
-        $query = "SELECT facility_logbook.*, peralatan.nama, user.name, status.status FROM facility_logbook INNER JOIN peralatan ON facility_logbook.nama_alat = peralatan.id INNER JOIN user ON facility_logbook.nama_petugas = user.id INNER JOIN status ON facility_logbook.status_id = status.id";
+        $query = "SELECT facility_logbook.*,  user.name, status.status FROM facility_logbook INNER JOIN user ON facility_logbook.nama_petugas = user.id INNER JOIN status ON facility_logbook.status_id = status.id";
         return $this->db->query($query)->result_array();
     }
 

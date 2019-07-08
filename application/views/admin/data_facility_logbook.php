@@ -27,7 +27,6 @@
               <thead>
                 <tr>
                   <th width="5%">#</th>
-                  <th width="10%">Nama Alat</th>
                   <th width="10%">Tanggal</th>
                   <th width="10%">Jam</th>
                   <th width="10%">Catatan</th>
@@ -43,7 +42,6 @@
                 <?php foreach ($logbook as $log) : ?>
                   <tr>
                     <th scope="row"><?= $i; ?></th>
-                    <td><?= $log['nama']; ?> </td>
                     <td><?= $log['waktu']; ?> </td>
                     <td><?= $log['jam']; ?> </td>
                     <td><?= $log['catatan']; ?> </td>
@@ -106,18 +104,6 @@
           </div>
         </div>
         <div class="row mt-4">
-          <div class="col">
-            <label>Nama Alat</label>
-            <select class="custom-select mr-sm-2" id="add_nama_alat" name="add_nama_alat">
-              <?= form_error('add_nama_alat', '<small class="text-danger">', '</small>'); ?>
-              <option selected value="">-- Pilih --</option>
-              <?php
-                foreach ($option_alat as $opta) : ?>
-                  echo '<option value="<?= $opta['id']; ?>"><?= $opta['nama']; ?></option>';
-              <?php endforeach; ?>
-            </select>
-            <?= form_error('add_nama_alat', '<small class="text-danger">', '</small>'); ?>
-          </div>
           <div class="col">
             <label>Pilih Petugas</label>
             <select class="custom-select mr-sm-2" id="add_nama_petugas" name="add_nama_petugas">

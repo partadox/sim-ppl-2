@@ -895,7 +895,6 @@ class Admin extends CI_Controller
     {
         $this->form_validation->set_rules('add_tanggal', 'Tanggal', 'required');
         $this->form_validation->set_rules('time', 'Time', 'required');
-        $this->form_validation->set_rules('add_nama_alat', 'Alat', 'required');
         $this->form_validation->set_rules('add_nama_petugas', 'Petugas', 'required');
         $this->form_validation->set_rules('add_catatan', 'Catatan', 'required');
         $this->form_validation->set_rules('add_pemeriksa', 'Pemeriksa', 'required');
@@ -903,7 +902,6 @@ class Admin extends CI_Controller
         if ($this->form_validation->run()) {
             $add_tanggal = $this->input->post('add_tanggal');
             $time = $this->input->post('time');
-            $add_nama_alat = $this->input->post('add_nama_alat');
             $add_nama_petugas = $this->input->post('add_nama_petugas');
             $add_catatan = $this->input->post('add_catatan');
             $add_pemeriksa = $this->input->post('add_pemeriksa');
@@ -911,7 +909,6 @@ class Admin extends CI_Controller
             $logbook_baru = ([
               'waktu'=>$add_tanggal,
               'jam'=>$time,
-              'nama_alat'=>$add_nama_alat,
               'nama_petugas'=>$add_nama_petugas,
               'catatan'=>$add_catatan,
               'status_id'=>'1',
