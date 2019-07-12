@@ -60,6 +60,7 @@
                   <th width="10%">Petugas</th>
                   <th width="10%">Pemeriksa</th>
                   <th width="10%">Status</th>
+                  <th width="10%">Tgl Periksa</th>
                 </tr>
               </thead>
               <tbody>
@@ -81,6 +82,7 @@
                     <td><?= $lkp['name']; ?> </td>
                     <td><?= $lkp['nama_pemeriksa']; ?> </td>
                     <td><?= $lkp['status']; ?></td>
+                    <td><?= $lkp['tanggal_periksa']; ?></td>
                   </tr>
                   <?php $i++; ?>
                 <?php endforeach; ?>

@@ -51,11 +51,14 @@
               <thead>
                 <tr>
                   <th width="5%">No</th>
-                  <th width="15%">Tanggal</th>
+                  <th width="10%">Tanggal</th>
                   <th width="10%">Nama Alat</th>
-                  <th width="10%">Petugas</th>
                   <th width="10%">Kegiatan</th>
+                  <th width="10%">Petugas</th>
                   <th width="10%">Keterangan</th>
+                  <th width="10%">Status</th>
+                  <th width="10%">Petugas Pemeriksa</th>
+                  <th width="10%">Tanggal Diperiksa</th>
                 </tr>
               </thead>
               <tbody>
@@ -69,9 +72,12 @@
                     <th scope="row"><?= $i; ?></th>
                     <td><?= $prwt['tanggal']; ?> </td>
                     <td><?= $prwt['nama']; ?> </td>
-                    <td><?= $prwt['name']; ?> </td>
                     <td><?= $prwt['kegiatan']; ?> </td>
+                    <td><?= $prwt['name']; ?> </td>
                     <td><?= $prwt['keterangan']; ?> </td>
+                    <td><?= $prwt['status']; ?> </td>
+                    <td><?= $prwt['pemeriksa']; ?> </td>
+                    <td><?= $prwt['tanggal_periksa']; ?> </td>
                   </tr>
                   <?php $i++; ?>
                 <?php endforeach; ?>

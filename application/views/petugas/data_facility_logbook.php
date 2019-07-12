@@ -34,7 +34,6 @@
                   <th width="10%">Status Pemeriksaan</th>
                   <th width="10%">Pemeriksa</th>
                   <th width="10%">Tgl/Jam Diperiksa</th>
-                  <th width="5%">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -53,13 +52,6 @@
 }; ?> </td>
                     <td><?= $log['nama_pemeriksa']; ?> </td>
                     <td><?= $log['waktu_periksa']; ?> </td>
-                    <td>
-                    <!--   <a href="#"
-                          data-target="#karyawan-modal-edit"
-                          data-toggle="modal"
-                          class="badge badge-warning">Edit</a> -->
-                      <a href="<?= base_url(); ?>admin/hapus_logbook/<?= $log['id']; ?>" class="badge badge-danger" onclick="return confirm('Apa anda yakin menghapus data logbook ini?');">Hapus</a>
-                    </td>
                   </tr>
                   <?php $i++; ?>
                 <?php endforeach; ?>
@@ -89,7 +81,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= base_url('admin/tambah_logbook'); ?>" method="post">
+      <form action="<?= base_url('petugas/tambah_logbook'); ?>" method="post">
       <div class="modal-body">
         <div class="row">
           <div class="col">
@@ -106,14 +98,8 @@
         <div class="row mt-4">
           <div class="col">
             <label>Pilih Petugas</label>
-            <select class="custom-select mr-sm-2" id="add_nama_petugas" name="add_nama_petugas">
-              <?= form_error('add_nama_alat', '<small class="text-danger">', '</small>'); ?>
-              <option selected value="">--Pilih--</option>
-              <?php
-                foreach ($option_petugas as $opp) : ?>
-                  echo '<option value="<?= $opp['id']; ?>"><?= $opp['name']; ?></option>';
-              <?php endforeach; ?>
-            </select>
+            <input type="text" class="form-control" id="nama_ptgs" name="nama_ptgs" value="<?= $user['name']; ?>" disabled>
+            <input type="hidden" class="form-control" id="add_nama_petugas" name="add_nama_petugas" value="<?= $user['id']; ?>">
             <?= form_error('add_nama_petugas', '<small class="text-danger">', '</small>'); ?>
           </div>
         </div>
@@ -133,75 +119,4 @@
 </div>
 <!-- ============================================================== -->
 <!-- END Modal Tambah Perawatan -->
-<!-- ============================================================== -->
-
-<!-- ============================================================== -->
-<!-- Modal Edit Karyawan -->
-<!-- ============================================================== -->
-<div class="modal fade" id="karyawan-modal-edit" tabindex="-1" role="dialog" aria-labelledby="ModalPetugasEdit" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="ModalPetugasEdit">Data Petugas</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form action="<?= base_url('admin/edit_petugas')?>" method="post">
-      <div class="modal-body">
-        <div class="form-group">
-            <label>Nama Petugas</label>
-            <input type="hidden" name="id" id="id">
-            <input type="text" class="form-control" id="name" name="name">
-            <?= form_error('add_name', '<small class="text-danger">', '</small>'); ?>
-        </div>
-        <div class="row">
-          <div class="col">
-            <label>Nomor Induk Pegawai</label>
-            <input type="text" class="form-control" id="edit_nip" name="edit_nip">
-            <?= form_error('add_nip', '<small class="text-danger">', '</small>'); ?>
-          </div>
-          <div class="col">
-            <label>Pilih User Role</label>
-            <input type="text" class="form-control" id="edit_user_role" name="edit_user_role" disabled>
-              <?= form_error('add_user_role', '<small class="text-danger">', '</small>'); ?>
-            </input>
-          </div>
-        </div>
-          <div class="form-group mt-2">
-            <label>E-mail</label>
-            <input type="email" class="form-control" id="edit_email" name="edit_email">
-            <?= form_error('add_email', '<small class="text-danger">', '</small>'); ?>
-          </div>
-         <div class="form-group">
-           <label>Kontak</label>
-           <input type="text" class="form-control" id="edit_phone" name="edit_phone">
-           <?= form_error('add_phone', '<small class="text-danger">', '</small>'); ?>
-         </div>
-         <div class="form-group">
-           <label>Alamat</label>
-           <input type="text" class="form-control" id="edit_alamat" name="edit_alamat">
-           <?= form_error('add_alamat', '<small class="text-danger">', '</small>'); ?>
-         </div>
-          <div class="form-group">
-            <label>Username</label>
-            <input type="text" class="form-control" id="edit_username" name="edit_username">
-            <?= form_error('add_username', '<small class="text-danger">', '</small>'); ?>
-          </div>
-         <div class="form-group">
-           <label>Password</label>
-           <input type="text" class="form-control" id="edit_password" name="edit_password">
-           <?= form_error('add_password', '<small class="text-danger">', '</small>'); ?>
-         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-warning">Edit Data</button>
-      </div>
-    </form>
-    </div>
-  </div>
-</div>
-<!-- ============================================================== -->
-<!-- END Modal Edit Karyawan -->
 <!-- ============================================================== -->

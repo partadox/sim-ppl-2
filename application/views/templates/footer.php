@@ -132,6 +132,107 @@
     });
 </script>
 
+<!-- Get data for PERAWATAN - ACC PEMERIKSA scripts -->
+<script>
+    $(document).ready(function() {
+        // Untuk sunting
+        $('#perawatan-modal-pemeriksa').on('show.bs.modal', function (event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var modal          = $(this)
+
+            // Isi nilai pada field
+            modal.find('#id').attr("value",div.data('id'));
+            modal.find('#tanggal_periksa').attr("value",div.data('tanggal_periksa'));
+            modal.find('#pemeriksa').attr("value",div.data('pemeriksa'));
+            modal.find('#status_id').attr("value",div.data('status_id'));
+        });
+    });
+</script>
+
+<!-- Get data for PERAWATAN - CANCEL ACC PEMERIKSA scripts -->
+<script>
+    $(document).ready(function() {
+        // Untuk sunting
+        $('#cancel-modal').on('show.bs.modal', function (event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var modal          = $(this)
+
+            // Isi nilai pada field
+            modal.find('#id').attr("value",div.data('id'));
+            modal.find('#tanggal_periksa').attr("value",div.data('tanggal_periksa'));
+            modal.find('#pemeriksa').attr("value",div.data('pemeriksa'));
+            modal.find('#status_id').attr("value",div.data('status_id'));
+        });
+    });
+</script>
+
+<!-- Get data for FL- ACC PEMERIKSA scripts -->
+<script>
+    $(document).ready(function() {
+        // Untuk sunting
+        $('#fl-modal-pemeriksa').on('show.bs.modal', function (event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var modal          = $(this)
+
+            // Isi nilai pada field
+            modal.find('#id').attr("value",div.data('id'));
+            modal.find('#waktu_periksa').attr("value",div.data('waktu_periksa'));
+            modal.find('#nama_pemeriksa').attr("value",div.data('nama_pemeriksa'));
+            modal.find('#status_id').attr("value",div.data('status_id'));
+        });
+    });
+</script>
+
+<!-- Get data for FL - CANCEL ACC PEMERIKSA scripts -->
+<script>
+    $(document).ready(function() {
+        // Untuk sunting
+        $('#fl-cancel-modal').on('show.bs.modal', function (event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var modal          = $(this)
+
+            // Isi nilai pada field
+            modal.find('#id').attr("value",div.data('id'));
+            modal.find('#waktu_periksa').attr("value",div.data('waktu_periksa'));
+            modal.find('#nama_pemeriksa').attr("value",div.data('nama_pemeriksa'));
+            modal.find('#status_id').attr("value",div.data('status_id'));
+        });
+    });
+</script>
+
+<!-- Get data for LKP- ACC PEMERIKSA scripts -->
+<script>
+    $(document).ready(function() {
+        // Untuk sunting
+        $('#lkp-modal-pemeriksa').on('show.bs.modal', function (event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var modal          = $(this)
+
+            // Isi nilai pada field
+            modal.find('#id').attr("value",div.data('id'));
+            modal.find('#tanggal_periksa').attr("value",div.data('tanggal_periksa'));
+            modal.find('#nama_pemeriksa').attr("value",div.data('nama_pemeriksa'));
+            modal.find('#status_id').attr("value",div.data('status_id'));
+        });
+    });
+</script>
+
+<!-- Get data for LKP - CANCEL ACC PEMERIKSA scripts -->
+<script>
+    $(document).ready(function() {
+        // Untuk sunting
+        $('#lkp-cancel-modal').on('show.bs.modal', function (event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var modal          = $(this)
+
+            // Isi nilai pada field
+            modal.find('#id').attr("value",div.data('id'));
+            modal.find('#tanggal_periksa').attr("value",div.data('tanggal_periksa'));
+            modal.find('#nama_pemeriksa').attr("value",div.data('nama_pemeriksa'));
+            modal.find('#status_id').attr("value",div.data('status_id'));
+        });
+    });
+</script>
 
 <!-- Print -->
 <script>

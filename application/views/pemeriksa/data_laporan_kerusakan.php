@@ -2,7 +2,7 @@
 <div class="container-fluid dashboard-content">
   <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-<?php if ($pesan = $this->session->flashdata('pesan_perawatan')): ?>
+<?php if ($pesan = $this->session->flashdata('pesan_lkp')): ?>
   <div class="form-group">
     <div class="col-lg-12">
       <div class="alert alert-dismissible alert-success">
@@ -24,53 +24,59 @@
               <thead>
                 <tr>
                   <th width="5%">#</th>
-                  <th width="10%">Tanggal (yyyy-mm-dd)</th>
-                  <th width="10%">Nama Alat</th>
+                  <th width="5%">Tanggal</th>
+                  <th width="10%">Lokasi</th>
+                  <th width="10%">Uraian</th>
+                  <th width="10%">Tindakan</th>
+                  <th width="10%">Jns Spare-Part</th>
+                  <th width="10%">Jml Spare-Part</th>
+                  <th width="10%">Keterangan</th>
                   <th width="10%">Petugas</th>
-                  <th width="20%">Kegiatan</th>
-                  <th width="15%">Keterangan</th>
-                  <th width="10%">Petugas Pemeriksa</th>
-                  <th width="10%">Tanggal Diperiksa</th>
+                  <th width="5%">Pemeriksa</th>
                   <th width="10%">Status</th>
+                  <th width="10%">Tanggal Diperiksa</th>
                   <th width="5%">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <?php $i = 1; ?>
-                <?php foreach ($perawatan as $prwt) : ?>
+                <?php foreach ($laporan_kerusakan as $lkp) : ?>
                   <tr>
                     <th scope="row"><?= $i; ?></th>
-                    <td><?= $prwt['tanggal']; ?> </td>
-                    <td><?= $prwt['nama']; ?> </td>
-                    <td><?= $prwt['name']; ?> </td>
-                    <td><?= $prwt['kegiatan']; ?> </td>
-                    <td><?= $prwt['keterangan']; ?> </td>
-                    <td><?= $prwt['pemeriksa']; ?> </td>
-                    <td><?= $prwt['tanggal_periksa']; ?> </td>
-                    <td><?php if ($prwt['status_id'] == 1) {
-    echo "<h2 class='badge badge-pill badge-danger'>Belum Diperiksa</h2>";
+                    <td><?= $lkp['tanggal']; ?> </td>
+                    <td><?= $lkp['lokasi']; ?> </td>
+                    <td><?= $lkp['uraian']; ?> </td>
+                    <td><?= $lkp['tindakan']; ?> </td>
+                    <td><?= $lkp['spare_part_nama']; ?> </td>
+                    <td><?= $lkp['spare_part_jumlah']; ?> </td>
+                    <td><?= $lkp['keterangan']; ?> </td>
+                    <td><?= $lkp['name']; ?> </td>
+                    <td><?= $lkp['nama_pemeriksa']; ?> </td>
+                    <td><?php if ($lkp['status_id'] == 1) {
+    echo "<h2 class='badge badge-pill badge-danger'>Belum</h2>";
 } else {
-    echo "<h2 class='badge badge-pill badge-success'>Sudah Diperiksa</h2>";
+    echo "<h2 class='badge badge-pill badge-success'>Terperiksa</h2>";
 }; ?> </td>
-                  <td>
-                    <a href="javascript:;"
-                    data-id="<?= $prwt['id'] ?>"
-                    data-pemeriksa="<?= $prwt['pemeriksa'] ?>"
-                    data-tanggal_periksa="<?= $prwt['tanggal_periksa'] ?>"
-                    data-status_id="<?= $prwt['status_id'] ?>"
-                    data-target="#perawatan-modal-pemeriksa"
-                    data-toggle="modal"
-                    class="btn btn-success btn-sm" >Setujui</a>
+                    <td><?= $lkp['tanggal_periksa']; ?> </td>
+                    <td>
+                      <a href="javascript:;"
+                      data-id="<?= $lkp['id'] ?>"
+                      data-nama_pemeriksa="<?= $lkp['nama_pemeriksa'] ?>"
+                      data-tanggal_periksa="<?= $lkp['tanggal_periksa'] ?>"
+                      data-status_id="<?= $lkp['status_id'] ?>"
+                      data-target="#lkp-modal-pemeriksa"
+                      data-toggle="modal"
+                      class="btn btn-success btn-sm" >Setujui</a>
 
-                    <a href="javascript:;"
-                    data-id="<?= $prwt['id'] ?>"
-                    data-pemeriksa="<?= $prwt['pemeriksa'] ?>"
-                    data-tanggal_periksa="<?= $prwt['tanggal_periksa'] ?>"
-                    data-status_id="<?= $prwt['status_id'] ?>"
-                    data-target="#cancel-modal"
-                    data-toggle="modal"
-                    class="btn btn-danger btn-sm mt-2" >Batalkan</a>
-                  </td>
+                      <a href="javascript:;"
+                      data-id="<?= $lkp['id'] ?>"
+                      data-nama_pemeriksa="<?= $lkp['nama_pemeriksa'] ?>"
+                      data-tanggal_periksa="<?= $lkp['tanggal_periksa'] ?>"
+                      data-status_id="<?= $lkp['status_id'] ?>"
+                      data-target="#lkp-cancel-modal"
+                      data-toggle="modal"
+                      class="btn btn-danger btn-sm mt-2" >Batalkan</a>
+                    </td>
                   </tr>
                   <?php $i++; ?>
                 <?php endforeach; ?>
@@ -91,7 +97,7 @@
 <!-- ============================================================== -->
 <!-- Modal Periksa -->
 <!-- ============================================================== -->
-<div class="modal fade" id="perawatan-modal-pemeriksa" tabindex="-1" role="dialog" aria-labelledby="ModalPetugas" aria-hidden="true">
+<div class="modal fade" id="lkp-modal-pemeriksa" tabindex="-1" role="dialog" aria-labelledby="ModalPetugas" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -100,7 +106,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= base_url('pemeriksa/disetujui'); ?>" method="post">
+      <form action="<?= base_url('pemeriksa/disetujui_laporan_kerusakan'); ?>" method="post">
       <div class="modal-body">
         <h6>Pilih "<i class="fas fa-check"></i>Diperiksa" jika anda yakin sudah memeriksa laporan ini.</h6>
         <input type="hidden" name="id" id="id">
@@ -123,7 +129,7 @@
 <!-- ============================================================== -->
 <!-- Modal Periksa -->
 <!-- ============================================================== -->
-<div class="modal fade" id="cancel-modal" tabindex="-1" role="dialog" aria-labelledby="ModalPetugas" aria-hidden="true">
+<div class="modal fade" id="lkp-cancel-modal" tabindex="-1" role="dialog" aria-labelledby="ModalPetugas" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -132,7 +138,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= base_url('pemeriksa/disetujui'); ?>" method="post">
+      <form action="<?= base_url('pemeriksa/disetujui_laporan_kerusakan'); ?>" method="post">
       <div class="modal-body">
         <h6>Pilih "<i class="fas fa-ban"></i> Batal Pemeriksaan" jika anda yakin membatalkan laporan ini.</h6>
         <input type="hidden" name="id" id="id">

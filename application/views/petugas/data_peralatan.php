@@ -193,8 +193,8 @@
         <input type="hidden" name="id" id="id">
         <div class="row">
           <div class="col">
-            <label>Pilih Kategori Alat</label>
-            <input class="custom-select mr-sm-2" id="add_kategori" name="add_kategori" disabled>
+            <label>Pilih Kategori Alat (Visual AID=1/Non=2)</label>
+            <input class="custom-select mr-sm-2" id="add_kategori" name="add_kategori">
               <?= form_error('add_kategori', '<small class="text-danger">', '</small>'); ?>
           </div>
           <div class="col">
@@ -218,7 +218,7 @@
             <div class="row">
               <div class="col">
                 <label class="mt-4">Tahun Instalasi</label>
-                <input class="form-control" id="add_tahun_install" name="add_tahun_install" disabled>
+                <input class="form-control" id="add_tahun_install" name="add_tahun_install">
                 <?= form_error('add_tahun_install', '<small class="text-danger">', '</small>'); ?>
               </div>
               <div class="col">

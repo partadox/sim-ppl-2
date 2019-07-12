@@ -31,10 +31,10 @@ class Logbook_model extends CI_Model
         $this->db->delete('facility_logbook');
     }
 
-    public function edit_perawatan($data, $id)
+    public function acc_fl($data, $id)
     {
         $this->db->where('id', $id);
-        $this->db->update('perawatan', $data);
+        $this->db->update('facility_logbook', $data);
         return true;
     }
 }

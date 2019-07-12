@@ -31,10 +31,10 @@ class LKP_model extends CI_Model
         $this->db->delete('laporan_kerusakan');
     }
 
-    public function edit_perawatan($data, $id)
+    public function acc_lkp($data, $id)
     {
         $this->db->where('id', $id);
-        $this->db->update('perawatan', $data);
+        $this->db->update('laporan_kerusakan', $data);
         return true;
     }
 }

@@ -27,13 +27,15 @@
               <thead>
                 <tr>
                   <th width="5%">#</th>
-                  <th width="15%">Tanggal (yyyy-mm-dd)</th>
+                  <th width="10%">Tanggal (yyyy-mm-dd)</th>
                   <th width="10%">Nama Alat</th>
+                  <th width="20%">Kegiatan</th>
                   <th width="10%">Petugas</th>
-                  <th width="10%">Kegiatan</th>
-                  <th width="10%">Keterangan</th>
+                  <th width="15%">Keterangan</th>
                   <th width="10%">Status</th>
-                  <th width="10%">Action</th>
+                  <th width="10%">Petugas Pemeriksa</th>
+                  <th width="10%">Tanggal Diperiksa</th>
+                  <th width="5%">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -43,14 +45,17 @@
                     <th scope="row"><?= $i; ?></th>
                     <td><?= $prwt['tanggal']; ?> </td>
                     <td><?= $prwt['nama']; ?> </td>
-                    <td><?= $prwt['name']; ?> </td>
                     <td><?= $prwt['kegiatan']; ?> </td>
+                    <td><?= $prwt['name']; ?> </td>
                     <td><?= $prwt['keterangan']; ?> </td>
                     <td><?php if ($prwt['status_id'] == 1) {
     echo "<h2 class='badge badge-pill badge-danger'>Belum Diperiksa</h2>";
 } else {
     echo "<h2 class='badge badge-pill badge-success'>Sudah Diperiksa</h2>";
 }; ?> </td>
+
+                    <td><?= $prwt['pemeriksa']; ?> </td>
+                    <td><?= $prwt['tanggal_periksa']; ?> </td>
                     <td>
                       <a href="<?= base_url(); ?>admin/hapus_perawatan/<?= $prwt['id']; ?>" class="badge badge-danger" onclick="return confirm('Apa anda yakin menghapus data perawatan ini?');">Hapus</a>
                     </td>

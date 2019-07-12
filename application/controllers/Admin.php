@@ -825,7 +825,9 @@ class Admin extends CI_Controller
               'nama_petugas'=>$add_nama_petugas,
               'kegiatan'=>$add_kegiatan,
               'keterangan'=>$add_keterangan,
-              'status_id'=>'1'
+              'status_id'=>'1',
+              'Pemeriksa'=>'',
+              'tanggal_periksa'=>'0000-00-00'
             ]);
             $data = array_merge($perawatan_baru);
             if ($this->Perawatan_model->TambahPerawatan($data) == false) {
@@ -1096,14 +1098,12 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('time', 'Time', 'required');
         $this->form_validation->set_rules('add_nama_petugas', 'Petugas', 'required');
         $this->form_validation->set_rules('add_catatan', 'Catatan', 'required');
-        $this->form_validation->set_rules('add_pemeriksa', 'Pemeriksa', 'required');
 
         if ($this->form_validation->run()) {
             $add_tanggal = $this->input->post('add_tanggal');
             $time = $this->input->post('time');
             $add_nama_petugas = $this->input->post('add_nama_petugas');
             $add_catatan = $this->input->post('add_catatan');
-            $add_pemeriksa = $this->input->post('add_pemeriksa');
 
             $logbook_baru = ([
               'waktu'=>$add_tanggal,
@@ -1111,7 +1111,7 @@ class Admin extends CI_Controller
               'nama_petugas'=>$add_nama_petugas,
               'catatan'=>$add_catatan,
               'status_id'=>'1',
-              'nama_pemeriksa'=>$add_pemeriksa
+              'nama_pemeriksa'=>'-'
             ]);
             $data = array_merge($logbook_baru);
             if ($this->Logbook_model->TambahLogbook($data) == false) {
@@ -1264,7 +1264,6 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('add_spare_part_nama', 'Spare_part_nama', 'required');
         $this->form_validation->set_rules('add_spare_part_jumlah', 'Spare_part_jumlah', 'required');
         $this->form_validation->set_rules('add_nama_petugas', 'Petugas', 'required');
-        $this->form_validation->set_rules('add_pemeriksa', 'Pemeriksa', 'required');
 
         if ($this->form_validation->run()) {
             $add_tanggal = $this->input->post('add_tanggal');
@@ -1275,7 +1274,6 @@ class Admin extends CI_Controller
             $add_spare_part_nama = $this->input->post('add_spare_part_nama');
             $add_spare_part_jumlah = $this->input->post('add_spare_part_jumlah');
             $add_nama_petugas = $this->input->post('add_nama_petugas');
-            $add_pemeriksa = $this->input->post('add_pemeriksa');
 
             $laporan_kerusakan_baru = ([
               'tanggal'=>$add_tanggal,
@@ -1286,7 +1284,7 @@ class Admin extends CI_Controller
               'spare_part_nama'=>$add_spare_part_nama,
               'spare_part_jumlah'=>$add_spare_part_jumlah,
               'nama_petugas'=>$add_nama_petugas,
-              'nama_pemeriksa'=>$add_pemeriksa,
+              'nama_pemeriksa'=>'-',
               'status_id'=>'1'
             ]);
             $data = array_merge($laporan_kerusakan_baru);

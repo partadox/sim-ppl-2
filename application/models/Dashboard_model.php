@@ -32,15 +32,51 @@ class Dashboard_model extends CI_Model
         return $this->db->query($query)->num_rows();
     }
 
+    public function countPerawatanPemeriksaBelum()
+    {
+        $query = "SELECT * FROM perawatan WHERE status_id = '1'";
+        return $this->db->query($query)->num_rows();
+    }
+
+    public function countPerawatanPemeriksaSudah()
+    {
+        $query = "SELECT * FROM perawatan WHERE status_id = '2'";
+        return $this->db->query($query)->num_rows();
+    }
+
     public function countfl()
     {
         $query = "SELECT * FROM facility_logbook";
         return $this->db->query($query)->num_rows();
     }
 
+    public function countflPemeriksaBelum()
+    {
+        $query = "SELECT * FROM facility_logbook WHERE status_id = '1'";
+        return $this->db->query($query)->num_rows();
+    }
+
+    public function countflPemeriksaSudah()
+    {
+        $query = "SELECT * FROM facility_logbook WHERE status_id = '2'";
+        return $this->db->query($query)->num_rows();
+    }
+
     public function countlkp()
     {
         $query = "SELECT * FROM laporan_kerusakan";
+        return $this->db->query($query)->num_rows();
+    }
+
+    public function countlkpPemeriksaBelum()
+    {
+        $query = "SELECT * FROM laporan_kerusakan WHERE status_id = '1'";
+        return $this->db->query($query)->num_rows();
+    }
+
+    public function countlkpPemeriksaSudah()
+    {
+        $query = "SELECT * FROM laporan_kerusakan WHERE status_id = '2'";
         return $this->db->query($query)->num_rows();
     }
 

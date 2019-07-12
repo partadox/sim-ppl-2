@@ -2,7 +2,7 @@
 <div class="container-fluid dashboard-content">
   <!-- Page Heading -->
 <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-<?php if ($pesan = $this->session->flashdata('pesan_perawatan')): ?>
+<?php if ($pesan = $this->session->flashdata('pesan_alat')): ?>
   <div class="form-group">
     <div class="col-lg-12">
       <div class="alert alert-dismissible alert-success">
@@ -14,10 +14,10 @@
 <?php endif ?>
 <div class="col-lg-12">
     <div class="form-group">
-        <label>Masukan Tanggal Laporan</label>
+        <label>Masukan Bulan Laporan</label>
         <div class="row">
           <div class="col">
-            <input type="date" class="form-control" id="date" name="date"  data-date-format="DD MMMM YYYY">
+            <input type="month" class="form-control" id="date" name="date"  data-date-format="DD MMMM YYYY">
             <?= form_error('add_tanggal', '<small class="text-danger">', '</small>'); ?>
           </div>
           <div class="col">
@@ -42,41 +42,45 @@
     .tg .tg-s268{text-align:left}
     .tg .tg-0lax{text-align:left;vertical-align:top}
     </style>
-    <div class="container-fluid">
-      <div class="card mb-4">
+  <div class="container-fluid">
+  <div class="card mb-4">
         <div class="card-body">
           <div class="table-responsive" id="table">
-            <table class="tg table-bordered" width="100%" cellspacing="0">
+            <table class="tg table-bordered"  width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th width="5%">No</th>
-                  <th width="10%">Tanggal</th>
-                  <th width="10%">Nama Alat</th>
-                  <th width="10%">Kegiatan</th>
-                  <th width="10%">Petugas</th>
-                  <th width="10%">Keterangan</th>
-                  <th width="10%">Status</th>
-                  <th width="10%">Petugas Pemeriksa</th>
-                  <th width="10%">Tanggal Diperiksa</th>
+                  <th class="tg-0lax">No</th>
+                  <th class="tg-0pky">Tanggal</th>
+                  <th class="tg-0lax">Kode</th>
+                  <th class="tg-0lax">Nama Sk. Cadang</th>
+                  <th class="tg-0lax">Merk</th>
+                  <th class="tg-0lax">Type</th>
+                  <th class="tg-0lax">Daya</th>
+                  <th class="tg-0lax">Tegangan</th>
+                  <th class="tg-0lax">Arus</th>
+                  <th class="tg-0lax">Jumlah</th>
+                  <th class="tg-0lax">Keterangan</th>
                 </tr>
               </thead>
               <tbody>
                 <h1><center><font size="4" class="mt-1" face="arial">BANDAR UDARA BUDIARTO CURUG</font></center></h1>
-                <center><b><font size="3" class="mt-1" face="arial">Laporan Data Pemeliharaan Tanggal</font></b></center><br>
+                <center><b><font size="3" class="mt-1" face="arial">Laporan Data Suku Cadang Bulan</font></b></center><br>
                 <center><b><font size="2" class="mt-1" face="arial">Jl. Raya PLP Tromol Pos 08, Curug, Serdang Wetan, Tangerang, Banten 15810<b></center><br>
                 <hr><width="100" height="75"></hr>
                 <?php $i = 1; ?>
-                <?php foreach ($perawatan as $prwt) : ?>
+                <?php foreach ($skcadang as $prt) : ?>
                   <tr>
                     <th scope="row"><?= $i; ?></th>
-                    <td><?= $prwt['tanggal']; ?> </td>
-                    <td><?= $prwt['nama']; ?> </td>
-                    <td><?= $prwt['kegiatan']; ?> </td>
-                    <td><?= $prwt['name']; ?> </td>
-                    <td><?= $prwt['keterangan']; ?> </td>
-                    <td><?= $prwt['status']; ?> </td>
-                    <td><?= $prwt['pemeriksa']; ?> </td>
-                    <td><?= $prwt['tanggal_periksa']; ?> </td>
+                    <td><?= $prt['tanggal_br']; ?> </td>
+                    <td><?= $prt['kode']; ?> </td>
+                    <td><?= $prt['nama_skcadang']; ?> </td>
+                    <td><?= $prt['merk']; ?> </td>
+                    <td><?= $prt['tipe']; ?> </td>
+                    <td><?= $prt['daya']; ?> </td>
+                    <td><?= $prt['tegangan']; ?> </td>
+                    <td><?= $prt['arus']; ?> </td>
+                    <td><?= $prt['jumlah']; ?> </td>
+                    <td><?= $prt['keterangan']; ?> </td>
                   </tr>
                   <?php $i++; ?>
                 <?php endforeach; ?>
@@ -84,6 +88,12 @@
             </table>
           </div>
         </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- TABLE  -->
+  <!-- ============================================================== -->
+
+
+  <!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->
-</div>

@@ -51,11 +51,11 @@
       <i class="fas fa-book"></i>
       <span> Facility Logbook</span>
     </a>
-    <div id="collapseLogbook" class="collapse" aria-labelledby="headingLogbook" data-parent="#accordionSidebar">
+    <div id="collapseLogbook" class="<?= $sidebar_fl_collapse; ?>" aria-labelledby="headingLogbook" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Submenu:</h6>
-        <a class="collapse-item" href="#">Data</a>
-        <a class="collapse-item" href="#">Print</a>
+        <a class="<?= $sidebar_fl_data; ?>" href="<?= base_url('pemeriksa/data_facility_logbook'); ?>">Data</a>
+        <a class="<?= $sidebar_fl_print; ?>" href="<?= base_url('pemeriksa/data_facility_logbook_print'); ?>">Print</a>
       </div>
     </div>
   </li>
@@ -66,11 +66,11 @@
       <i class="fas fa-tools"></i>
       <span> Laporan Kerusakan dan Perbaikan</span>
     </a>
-    <div id="collapseLKP" class="collapse" aria-labelledby="headingLKP" data-parent="#accordionSidebar">
+    <div id="collapseLKP" class="<?= $sidebar_lkp_collapse; ?>" aria-labelledby="headingLKP" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Submenu:</h6>
-        <a class="collapse-item" href="#">Data</a>
-        <a class="collapse-item" href="#">Print</a>
+        <a class="<?= $sidebar_lkp_data; ?>" href="<?= base_url('pemeriksa/data_laporan_kerusakan'); ?>">Data</a>
+        <a class="<?= $sidebar_lkp_print; ?>" href="<?= base_url('pemeriksa/data_laporan_kerusakan_print'); ?>">Print</a>
       </div>
     </div>
   </li>
@@ -81,15 +81,18 @@
       <i class="fas fa-tachometer-alt"></i>
       <span> Meter Reading</span>
     </a>
-    <div id="collapseMeterReadomg" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="collapseMeterReadomg" class="<?= $sidebar_mr_collapse; ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Submenu:</h6>
-        <a class="collapse-item" href="#">Data</a>
-        <a class="collapse-item" href="#">Print</a>
+        <a class="<?= $sidebar_mr_ccr; ?>" href="<?= base_url('pemeriksa/data_mr_ccr'); ?>">Data CCR</a>
+        <a class="<?= $sidebar_mr_ccr_print; ?>" href="<?= base_url('pemeriksa/data_mr_ccr_print'); ?>">Print Data CCR</a>
+        <a class="<?= $sidebar_mr_ups; ?>" href="<?= base_url('pemeriksa/data_mr_ups'); ?>">Data UPS</a>
+        <a class="<?= $sidebar_mr_ups_print; ?>" href="<?= base_url('pemeriksa/data_mr_ups_print'); ?>">Print Data UPS</a>
+        <a class="<?= $sidebar_mr_genset; ?>" href="<?= base_url('pemeriksa/data_mr_genset'); ?>">Data Genset</a>
+        <a class="<?= $sidebar_mr_genset_print; ?>" href="<?= base_url('pemeriksa/data_mr_genset_print'); ?>">Print Data Genset</a>
       </div>
     </div>
   </li>
-
   <!-- Nav Item - SOP -->
   <li class="<?= $sidebar_sop; ?>">
     <a class="nav-link" href="<?= base_url('pemeriksa/sop'); ?>">
