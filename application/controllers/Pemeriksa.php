@@ -16,6 +16,7 @@ class Pemeriksa extends CI_Controller
         $this->load->model('Ccr_model');
         $this->load->model('Ups_model');
         $this->load->model('Genset_model');
+        $this->load->model('Performa_Lampu_model');
         $this->load->library('form_validation');
         $this->load->library('javascript');
     }
@@ -52,6 +53,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']                  = 'nav-item';
 
@@ -105,6 +109,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -172,6 +179,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Perawatan Harian - SIM PPL Bandar Udara Budiarto Curug';
@@ -222,6 +232,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -274,6 +287,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Perawatan Bulanan - SIM PPL Bandar Udara Budiarto Curug';
@@ -324,6 +340,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -390,6 +409,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Facility Logbook Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -440,6 +462,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -506,6 +531,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Laporan Kerusakan Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -556,6 +584,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -608,6 +639,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Meter Reading CCR Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -658,6 +692,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -710,6 +747,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Meter Reading UPS Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -760,6 +800,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item active';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -812,6 +855,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item active';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Meter Reading Genset Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -824,6 +870,137 @@ class Pemeriksa extends CI_Controller
         $this->load->view('templates/sidebar3', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('pemeriksa/data_mr_genset_print', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function performa_lampu()
+    {
+        $data['role_name_sidebar'] = 'Pemeriksa';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+
+        $data['sidebar_perawatan']            = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item active';
+        $data['sidebar_gambar']          = 'nav-item';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+
+        $data['title'] = 'Performa Lampu Runway - SIM PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['operasi'] =$this->Performa_Lampu_model->Operasi();
+        $data['keop'] =$this->Performa_Lampu_model->ket_operasi();
+        $data['kenop'] =$this->Performa_Lampu_model->ket_noperasi();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar3', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('pemeriksa/performa_lampu', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function performa_lampu_op()
+    {
+        $jumlah     = $this->input->post('operasi');
+        $keterangan =  $this->input->post('ket_operasi');
+
+
+        $this->Performa_Lampu_model->edit_op($jumlah, $keterangan);
+        $this->performa_lampu();
+    }
+
+    public function performa_lampu_nop()
+    {
+        $jumlah     = $this->input->post('no_operasi');
+        $keterangan =  $this->input->post('ket_no_operasi');
+
+
+        $this->Performa_Lampu_model->edit_nop($jumlah, $keterangan);
+        $this->performa_lampu();
+    }
+
+    public function gambar_installasi()
+    {
+        $data['role_name_sidebar'] = 'Pemeriksa';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+
+        $data['sidebar_perawatan']            = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item active';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+
+        $data['title'] = 'Gambar Installasi - SIM PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar3', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('pemeriksa/gambar_installasi');
         $this->load->view('templates/footer');
     }
 
@@ -864,6 +1041,9 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item active';
 

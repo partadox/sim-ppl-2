@@ -126,6 +126,20 @@
     </div>
   </li>
 
+  <!-- Nav Item - Performa Lampu -->
+  <li class="<?= $sidebar_performa_lampu; ?>">
+    <a class="nav-link" href="<?= base_url('petugas/performa_lampu'); ?>">
+      <i class="fab fa-creative-commons-sampling"></i>
+      <span>Grafik Performa Lampu</span></a>
+  </li>
+
+  <!-- Nav Item - Gambar Installasi -->
+  <li class="<?= $sidebar_gambar; ?>">
+    <a class="nav-link" href="<?= base_url('petugas/gambar_installasi'); ?>">
+      <i class="far fa-images"></i>
+      <span>Gambar Installasi</span></a>
+  </li>
+
   <!-- Nav Item - SOP -->
   <li class="<?= $sidebar_sop; ?>">
     <a class="nav-link" href="<?= base_url('petugas/sop'); ?>">

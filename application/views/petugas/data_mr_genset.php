@@ -42,7 +42,6 @@
                   <th class="tg-uys7" rowspan="3">Tanggal</th>
                   <th class="tg-uys7" rowspan="3">Jam</th>
                   <th class="tg-uys7" colspan="7">Generator</th>
-                  <th class="tg-uys7" colspan="2">Engine</th>
                   <th class="tg-uys7" colspan="2">Baterai</th>
                   <th class="tg-xldj" rowspan="3">Penggunaan</th>
                   <th class="tg-xldj" rowspan="3">Jam Operasi</th>
@@ -53,8 +52,6 @@
                   <td class="tg-c3ow" colspan="3">Tegangan (Volt)</td>
                   <td class="tg-c3ow" colspan="3">Arus (Ampere)</td>
                   <td class="tg-uys7" rowspan="2">Frek(Hertz)</td>
-                  <td class="tg-uys7" rowspan="2">Temp.</td>
-                  <td class="tg-uys7" rowspan="2">Oil Press</td>
                   <td class="tg-uys7" rowspan="2">Tegangan</td>
                   <td class="tg-uys7" rowspan="2">Arus</td>
                 </tr>
@@ -82,8 +79,6 @@
                     <td><?= $gnst['generator_as']; ?> </td>
                     <td><?= $gnst['generator_at']; ?> </td>
                     <td><?= $gnst['frek']; ?> </td>
-                    <td><?= $gnst['engine_temp']; ?> </td>
-                    <td><?= $gnst['engine_oil']; ?> </td>
                     <td><?= $gnst['baterai_v']; ?> </td>
                     <td><?= $gnst['baterai_a']; ?> </td>
                     <td><?= $gnst['penggunaan']; ?> </td>
@@ -189,38 +184,6 @@
               </div>
               <div class="row mt-4">
                 <div class="col">
-                  <label>Generator Arus R (Ampere)</label>
-                  <input type="number" class="form-control" placeholder="1"  name="add_generator_ar" id="add_generator_ar">
-                  <?= form_error('add_generator_ar', '<small class="text-danger">', '</small>'); ?>
-                </div>
-                <div class="col">
-                  <label>Generator Arus S (Ampere)</label>
-                  <input type="number" class="form-control" placeholder="1" name="add_generator_as" id="add_generator_as">
-                  <?= form_error('add_generator_as', '<small class="text-danger">', '</small>'); ?>
-                </div>
-                <div class="col">
-                  <label>Generator Arus T (Ampere)</label>
-                  <input type="number" class="form-control" placeholder="1" name="add_generator_at" id="add_generator_at">
-                  <?= form_error('add_generator_at', '<small class="text-danger">', '</small>'); ?>
-                </div>
-                <div class="col">
-                  <label>Generator Frekuensi (Hertz)</label>
-                  <input type="number" class="form-control" placeholder="1" name="add_frek" id="add_frek">
-                  <?= form_error('add_frek', '<small class="text-danger">', '</small>'); ?>
-                </div>
-              </div>
-              <div class="row mt-4">
-                <div class="col">
-                  <label>Engine Temperature</label>
-                  <input type="number" class="form-control" placeholder="1" name="add_engine_temp" id="add_engine_temp">
-                  <?= form_error('add_engine_temp', '<small class="text-danger">', '</small>'); ?>
-                </div>
-                <div class="col">
-                  <label>Engine Oil Pressure</label>
-                  <input type="number" class="form-control" placeholder="1" name="add_engine_oil" id="add_engine_oil">
-                  <?= form_error('add_engine_oil', '<small class="text-danger">', '</small>'); ?>
-                </div>
-                <div class="col">
                   <label>Tegangan Baterai</label>
                   <input type="number" class="form-control" placeholder="1" name="add_bat_v" id="add_bat_v">
                   <?= form_error('add_bat_v', '<small class="text-danger">', '</small>'); ?>
@@ -230,6 +193,28 @@
                   <input type="number" class="form-control" placeholder="1"  name="add_bat_a" id="add_bat_a">
                   <?= form_error('add_bat_a', '<small class="text-danger">', '</small>'); ?>
                 </div>
+              </div>
+            </div>
+            <div class="row mt-4 ml-1">
+              <div class="col">
+                <label>Generator Arus R (Ampere)</label>
+                <input type="number" class="form-control" placeholder="1"  name="add_generator_ar" id="add_generator_ar">
+                <?= form_error('add_generator_ar', '<small class="text-danger">', '</small>'); ?>
+              </div>
+              <div class="col">
+                <label>Generator Arus S (Ampere)</label>
+                <input type="number" class="form-control" placeholder="1" name="add_generator_as" id="add_generator_as">
+                <?= form_error('add_generator_as', '<small class="text-danger">', '</small>'); ?>
+              </div>
+              <div class="col">
+                <label>Generator Arus T (Ampere)</label>
+                <input type="number" class="form-control" placeholder="1" name="add_generator_at" id="add_generator_at">
+                <?= form_error('add_generator_at', '<small class="text-danger">', '</small>'); ?>
+              </div>
+              <div class="col">
+                <label>Generator Frekuensi (Hertz)</label>
+                <input type="number" class="form-control" placeholder="1" name="add_frek" id="add_frek">
+                <?= form_error('add_frek', '<small class="text-danger">', '</small>'); ?>
               </div>
             </div>
       <div class="modal-footer">

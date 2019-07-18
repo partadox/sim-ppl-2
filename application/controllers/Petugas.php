@@ -16,6 +16,7 @@ class Petugas extends CI_Controller
         $this->load->model('Ccr_model');
         $this->load->model('Ups_model');
         $this->load->model('Genset_model');
+        $this->load->model('Performa_Lampu_model');
         $this->load->library('form_validation');
         $this->load->library('javascript');
     }
@@ -65,6 +66,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -133,6 +137,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -262,6 +269,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Peralatan Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -320,6 +330,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -473,6 +486,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Suku Cadang Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -531,6 +547,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -599,6 +618,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Keluar Suku Cadang Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -658,6 +680,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -764,6 +789,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Perawatan Harian - SIM PPL Bandar Udara Budiarto Curug';
@@ -824,6 +852,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -886,6 +917,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Perawatan Bulanan - SIM PPL Bandar Udara Budiarto Curug';
@@ -946,6 +980,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -1041,6 +1078,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Facility Logbook Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -1101,6 +1141,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -1211,6 +1254,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Laporan Kerusakan Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -1271,6 +1317,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -1401,6 +1450,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Meter Reading CCR Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -1461,6 +1513,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item';
 
@@ -1591,6 +1646,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Meter Reading UPS Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -1652,6 +1710,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item active';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Meter Reading Genset - SIM PPL Bandar Udara Budiarto Curug';
@@ -1687,8 +1748,6 @@ class Petugas extends CI_Controller
         $this->form_validation->set_rules('add_generator_at', 'Generator_at', 'required');
         $this->form_validation->set_rules('add_frek', 'Frekuensi', 'required');
 
-        $this->form_validation->set_rules('add_engine_temp', 'Engine_temp', 'required');
-        $this->form_validation->set_rules('add_engine_oil', 'Engine_oil', 'required');
         $this->form_validation->set_rules('add_bat_v', 'Baterai_v', 'required');
         $this->form_validation->set_rules('add_bat_a', 'Baterai_a', 'required');
 
@@ -1707,8 +1766,6 @@ class Petugas extends CI_Controller
             $add_generator_as = $this->input->post('add_generator_as');
             $add_generator_at = $this->input->post('add_generator_at');
             $add_frek = $this->input->post('add_frek');
-            $add_engine_temp = $this->input->post('add_engine_temp');
-            $add_engine_oil = $this->input->post('add_engine_oil');
             $add_bat_v = $this->input->post('add_bat_v');
             $add_bat_a = $this->input->post('add_bat_a');
 
@@ -1727,8 +1784,6 @@ class Petugas extends CI_Controller
               'generator_as'=>$add_generator_as,
               'generator_at'=>$add_generator_at,
               'frek'=>$add_frek,
-              'engine_temp'=>$add_engine_temp,
-              'engine_oil'=>$add_engine_oil,
               'baterai_v'=>$add_bat_v,
               'baterai_a'=>$add_bat_a
             ]);
@@ -1790,6 +1845,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item active';
 
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
         $data['sidebar_sop']         = 'nav-item';
 
         $data['title'] = 'Data Meter Reading Genset Print - SIM PPL Bandar Udara Budiarto Curug';
@@ -1804,6 +1862,152 @@ class Petugas extends CI_Controller
         $this->load->view('petugas/data_mr_genset_print', $data);
         $this->load->view('templates/footer');
     }
+
+    public function performa_lampu()
+    {
+        $data['role_name_sidebar'] = 'Petugas';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
+
+        $data['sidebar_skcadang']            = 'nav-item';
+        $data['sidebar_skcadang_collapse']   = 'collapse';
+        $data['sidebar_skcadang_data']       = 'collapse-item';
+        $data['sidebar_skcadang_print']      = 'collapse-item';
+        $data['sidebar_skcadang_keluar']     = 'collapse-item';
+        $data['sidebar_skcadang_keluar_print'] = 'collapse-item';
+
+        $data['sidebar_perawatan']   = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item active';
+        $data['sidebar_gambar']          = 'nav-item';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+        $data['title'] = 'Performa Lampu Runway - SIM PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['operasi'] =$this->Performa_Lampu_model->Operasi();
+        $data['keop'] =$this->Performa_Lampu_model->ket_operasi();
+        $data['kenop'] =$this->Performa_Lampu_model->ket_noperasi();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar2', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('petugas/performa_lampu', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function performa_lampu_op()
+    {
+        $jumlah     = $this->input->post('operasi');
+        $keterangan =  $this->input->post('ket_operasi');
+
+
+        $this->Performa_Lampu_model->edit_op($jumlah, $keterangan);
+        $this->performa_lampu();
+    }
+
+    public function performa_lampu_nop()
+    {
+        $jumlah     = $this->input->post('no_operasi');
+        $keterangan =  $this->input->post('ket_no_operasi');
+
+
+        $this->Performa_Lampu_model->edit_nop($jumlah, $keterangan);
+        $this->performa_lampu();
+    }
+
+    public function gambar_installasi()
+    {
+        $data['role_name_sidebar'] = 'Petugas';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']            = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
+
+        $data['sidebar_skcadang']            = 'nav-item';
+        $data['sidebar_skcadang_collapse']   = 'collapse';
+        $data['sidebar_skcadang_data']       = 'collapse-item';
+        $data['sidebar_skcadang_print']      = 'collapse-item';
+        $data['sidebar_skcadang_keluar']     = 'collapse-item';
+        $data['sidebar_skcadang_keluar_print'] = 'collapse-item';
+
+        $data['sidebar_perawatan']   = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item active';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+        $data['title'] = 'Gambar Installasi - SIM PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar2', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('petugas/gambar_installasi');
+        $this->load->view('templates/footer');
+    }
+
 
     public function sop()
     {
@@ -1850,6 +2054,9 @@ class Petugas extends CI_Controller
         $data['sidebar_mr_ups_print']     = 'collapse-item';
         $data['sidebar_mr_genset']        = 'collapse-item';
         $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
 
         $data['sidebar_sop']         = 'nav-item active';
 

@@ -54,7 +54,6 @@
                   <th class="tg-uys7" rowspan="3">Tanggal</th>
                   <th class="tg-uys7" rowspan="3">Jam</th>
                   <th class="tg-uys7" colspan="7">Generator</th>
-                  <th class="tg-uys7" colspan="2">Engine</th>
                   <th class="tg-uys7" colspan="2">Baterai</th>
                   <th class="tg-xldj" rowspan="3">Penggunaan</th>
                   <th class="tg-xldj" rowspan="3">Jam Operasi</th>
@@ -65,8 +64,6 @@
                   <td class="tg-c3ow" colspan="3">Tegangan (Volt)</td>
                   <td class="tg-c3ow" colspan="3">Arus (Ampere)</td>
                   <td class="tg-uys7" rowspan="2">Frek(Hertz)</td>
-                  <td class="tg-uys7" rowspan="2">Temp.</td>
-                  <td class="tg-uys7" rowspan="2">Oil Press</td>
                   <td class="tg-uys7" rowspan="2">Tegangan</td>
                   <td class="tg-uys7" rowspan="2">Arus</td>
                 </tr>
@@ -98,8 +95,6 @@
                     <td><?= $gnst['generator_as']; ?> </td>
                     <td><?= $gnst['generator_at']; ?> </td>
                     <td><?= $gnst['frek']; ?> </td>
-                    <td><?= $gnst['engine_temp']; ?> </td>
-                    <td><?= $gnst['engine_oil']; ?> </td>
                     <td><?= $gnst['baterai_v']; ?> </td>
                     <td><?= $gnst['baterai_a']; ?> </td>
                     <td><?= $gnst['penggunaan']; ?> </td>
