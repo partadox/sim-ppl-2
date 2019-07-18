@@ -57,8 +57,8 @@
                   <th width="10%">Jns Spare-Part</th>
                   <th width="10%">Jml Spare-Part</th>
                   <th width="10%">Keterangan</th>
-                  <th width="10%">Kondisi</th>
                   <th width="10%">Petugas</th>
+                  <th width="10%">Kondisi</th>
                   <th width="10%">Pemeriksa</th>
                   <th width="10%">Status</th>
                 </tr>

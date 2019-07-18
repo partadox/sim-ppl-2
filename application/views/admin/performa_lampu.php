@@ -46,7 +46,7 @@
   <div class="row mb-5">
     <div class="col">
       <div class="card shadow ">
-        <div class="card-body" id="piechart" style="width: 900px; height: 500px;"></div>
+        <div class="card-body" id="piechart" style="width: 800px; height: 500px;"></div>
       </div>
     </div>
     <div class="col">
