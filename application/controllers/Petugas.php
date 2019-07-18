@@ -1124,6 +1124,7 @@ class Petugas extends CI_Controller
         $this->form_validation->set_rules('add_uraian', 'Uraian', 'required');
         $this->form_validation->set_rules('add_tindakan', 'Tindakan', 'required');
         $this->form_validation->set_rules('add_keterangan', 'Keterangan', 'required');
+        $this->form_validation->set_rules('add_kondisi', 'Kondisi', 'required');
         $this->form_validation->set_rules('add_spare_part_nama', 'Spare_part_nama', 'required');
         $this->form_validation->set_rules('add_spare_part_jumlah', 'Spare_part_jumlah', 'required');
         $this->form_validation->set_rules('add_nama_petugas', 'Petugas', 'required');
@@ -1137,6 +1138,7 @@ class Petugas extends CI_Controller
             $add_spare_part_nama = $this->input->post('add_spare_part_nama');
             $add_spare_part_jumlah = $this->input->post('add_spare_part_jumlah');
             $add_nama_petugas = $this->input->post('add_nama_petugas');
+            $add_kondisi = $this->input->post('add_kondisi');
 
             $laporan_kerusakan_baru = ([
               'tanggal'=>$add_tanggal,
@@ -1147,6 +1149,7 @@ class Petugas extends CI_Controller
               'spare_part_nama'=>$add_spare_part_nama,
               'spare_part_jumlah'=>$add_spare_part_jumlah,
               'nama_petugas'=>$add_nama_petugas,
+              'kondisi'=>$add_kondisi,
               'nama_pemeriksa'=>'-',
               'status_id'=>'1'
             ]);

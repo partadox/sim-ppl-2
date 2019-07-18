@@ -58,6 +58,7 @@
                   <th width="10%">Jml Spare-Part</th>
                   <th width="10%">Keterangan</th>
                   <th width="10%">Petugas</th>
+                  <th width="10%">Kondisi</th>
                   <th width="10%">Pemeriksa</th>
                   <th width="10%">Status</th>
                   <th width="10%">Tgl Periksa</th>
@@ -80,6 +81,7 @@
                     <td><?= $lkp['spare_part_jumlah']; ?> </td>
                     <td><?= $lkp['keterangan']; ?> </td>
                     <td><?= $lkp['name']; ?> </td>
+                    <td><?= $lkp['kondisi']; ?> </td>
                     <td><?= $lkp['nama_pemeriksa']; ?> </td>
                     <td><?= $lkp['status']; ?></td>
                     <td><?= $lkp['tanggal_periksa']; ?></td>

@@ -35,6 +35,7 @@
                   <th width="10%">Jml Spare-Part</th>
                   <th width="10%">Keterangan</th>
                   <th width="10%">Petugas</th>
+                  <th width="10%">Kondisi</th>
                   <th width="5%">Pemeriksa</th>
                   <th width="10%">Status</th>
                 </tr>
@@ -52,6 +53,7 @@
                     <td><?= $lkp['spare_part_jumlah']; ?> </td>
                     <td><?= $lkp['keterangan']; ?> </td>
                     <td><?= $lkp['name']; ?> </td>
+                    <td><?= $lkp['kondisi']; ?> </td>
                     <td><?= $lkp['nama_pemeriksa']; ?> </td>
                     <td><?php if ($lkp['status_id'] == 1) {
     echo "<h2 class='badge badge-pill badge-danger'>Belum</h2>";
@@ -110,6 +112,11 @@
                 <textarea type="text" class="form-control" id="add_tindakan" name="add_tindakan" placeholder="Tindakan Mengatasi Kerusakan"></textarea>
                 <?= form_error('add_tindakan', '<small class="text-danger">', '</small>'); ?>
               </div>
+              <div class="form-group">
+                <label>Kondisi</label>
+                <input type="text" class="form-control" id="add_kondisi" name="add_kondisi" placeholder="Kondisi">
+                <?= form_error('add_kondisi', '<small class="text-danger">', '</small>'); ?>
+              </div>
                 <div class="form-group">
                   <label>Keterangan Perbaikan</label>
                   <input type="text" class="form-control" id="add_keterangan" name="add_keterangan" placeholder="Keterangan Perbaikan">
@@ -123,7 +130,7 @@
                 </div>
                 <div class="col">
                   <label>Jumlah Spare Part</label>
-                  <input type="number" class="form-control" id="add_spare_part_jumlah" name="add_spare_part_jumlah" placeholder="Jumlah Spare Part yg Digunakan">
+                  <input type="text" class="form-control" id="add_spare_part_jumlah" name="add_spare_part_jumlah" placeholder="Jumlah Spare Part yg Digunakan">
                   <?= form_error('add_spare_part_jumlah', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col">
