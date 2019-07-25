@@ -2,45 +2,44 @@
 
 class Performa_Lampu_model extends CI_Model
 {
-    public function Operasi()
+    public function operasi()
     {
-        $query = "SELECT status, jumlah FROM performa_lampu";
+        $query = "SELECT operasi FROM performa_lampu ORDER BY id DESC LIMIT 1";
+        return $this->db->query($query)->row_array();
+    }
+
+    public function no_operasi()
+    {
+        $query = "SELECT no_operasi FROM performa_lampu ORDER BY id DESC LIMIT 1";
+        return $this->db->query($query)->row_array();
+    }
+
+    public function tanggal()
+    {
+        $query = "SELECT tanggal FROM performa_lampu ORDER BY id DESC LIMIT 1";
+        return $this->db->query($query)->row_array();
+    }
+
+    public function keop()
+    {
+        $query = "SELECT ket_operasi FROM performa_lampu ORDER BY id DESC LIMIT 1";
+        return $this->db->query($query)->row_array();
+    }
+
+    public function kenop()
+    {
+        $query = "SELECT ket_no_operasi FROM performa_lampu ORDER BY id DESC LIMIT 1";
+        return $this->db->query($query)->row_array();
+    }
+
+    public function tambah($data)
+    {
+        $this->db->insert('performa_lampu', $data);
+    }
+
+    public function getAll()
+    {
+        $query = "SELECT * FROM performa_lampu ORDER BY id DESC";
         return $this->db->query($query)->result_array();
-    }
-
-    public function ket_operasi()
-    {
-        $query = "SELECT keterangan FROM performa_lampu WHERE id ='1'";
-        return $this->db->query($query)->row_array();
-    }
-
-    public function ket_noperasi()
-    {
-        $query = "SELECT keterangan FROM performa_lampu WHERE id ='2'";
-        return $this->db->query($query)->row_array();
-    }
-
-    public function NoOperasi()
-    {
-        $query = "SELECT no_operasi FROM performa_lampu WHERE id = (SELECT MAX(id) FROM performa_lampu)";
-        return $this->db->query($query)->result();
-    }
-
-    public function Today()
-    {
-        $query = "SELECT tanggal FROM performa_lampu WHERE id = (SELECT MAX(id) FROM performa_lampu)";
-        return $this->db->query($query)->result();
-    }
-
-    public function edit_op($jumlah, $keterangan)
-    {
-        $query = "UPDATE performa_lampu SET jumlah='$jumlah', keterangan='$keterangan' WHERE id='1'";
-        return $this->db->query($query);
-    }
-
-    public function edit_nop($jumlah, $keterangan)
-    {
-        $query = "UPDATE performa_lampu SET jumlah='$jumlah', keterangan='$keterangan' WHERE id='2'";
-        return $this->db->query($query);
     }
 }

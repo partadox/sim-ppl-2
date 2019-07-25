@@ -919,9 +919,12 @@ class Pemeriksa extends CI_Controller
 
         $data['title'] = 'Performa Lampu Runway - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        $data['operasi'] =$this->Performa_Lampu_model->Operasi();
-        $data['keop'] =$this->Performa_Lampu_model->ket_operasi();
-        $data['kenop'] =$this->Performa_Lampu_model->ket_noperasi();
+        $data['operasi'] =$this->Performa_Lampu_model->operasi();
+        $data['no_operasi'] =$this->Performa_Lampu_model->no_operasi();
+        $data['tanggal'] =$this->Performa_Lampu_model->tanggal();
+        $data['keop'] =$this->Performa_Lampu_model->keop();
+        $data['kenop'] =$this->Performa_Lampu_model->kenop();
+        $data['data_performa'] = $this->Performa_Lampu_model->getAll();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar3', $data);
@@ -930,23 +933,25 @@ class Pemeriksa extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function performa_lampu_op()
+    public function tambah_performa_lampu()
     {
-        $jumlah     = $this->input->post('operasi');
-        $keterangan =  $this->input->post('ket_operasi');
+        $tanggal     = $this->input->post('tanggal');
+        $operasi     = $this->input->post('operasi');
+        $ket_operasi=  $this->input->post('ket_operasi');
+        $no_operasi    = $this->input->post('no_operasi');
+        $ket_no_operasi =  $this->input->post('ket_no_operasi');
 
+        $performa_baru = ([
+        'tanggal'=>$tanggal,
+        'operasi'=>$operasi,
+        'ket_operasi'=>$ket_operasi,
+        'no_operasi'=>$no_operasi,
+        'ket_no_operasi'=>$ket_no_operasi
+      ]);
 
-        $this->Performa_Lampu_model->edit_op($jumlah, $keterangan);
-        $this->performa_lampu();
-    }
+        $data = array_merge($performa_baru);
 
-    public function performa_lampu_nop()
-    {
-        $jumlah     = $this->input->post('no_operasi');
-        $keterangan =  $this->input->post('ket_no_operasi');
-
-
-        $this->Performa_Lampu_model->edit_nop($jumlah, $keterangan);
+        $this->Performa_Lampu_model->tambah($data);
         $this->performa_lampu();
     }
 
