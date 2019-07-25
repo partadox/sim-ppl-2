@@ -18,6 +18,8 @@ class Admin extends CI_Controller
         $this->load->model('Ups_model');
         $this->load->model('Genset_model');
         $this->load->model('Performa_Lampu_model');
+        $this->table   = 'calendar';
+        $this->load->model('Globalmodel', 'modeldb');
         $this->load->library('form_validation');
         $this->load->library('javascript');
     }
@@ -91,6 +93,149 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/index', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function penjadwalan()
+    {
+        $data['role_name_sidebar'] = 'Admin';
+
+        $data['sidebar_dashboard']   = 'nav-item';
+        $data['sidebar_penjadwalan'] = 'nav-item active';
+        $data['sidebar_petugas']     = 'nav-item';
+
+        $data['sidebar_peralatan']   = 'nav-item';
+        $data['sidebar_peralatan_collapse']   = 'collapse';
+        $data['sidebar_peralatan_semua']      = 'collapse-item';
+        $data['sidebar_peralatan_print']      = 'collapse-item';
+
+        $data['sidebar_skcadang']            = 'nav-item';
+        $data['sidebar_skcadang_collapse']   = 'collapse';
+        $data['sidebar_skcadang_data']       = 'collapse-item';
+        $data['sidebar_skcadang_print']      = 'collapse-item';
+        $data['sidebar_skcadang_keluar']     = 'collapse-item';
+        $data['sidebar_skcadang_keluar_print'] = 'collapse-item';
+
+        $data['sidebar_perawatan']   = 'nav-item';
+        $data['sidebar_perawatan_collapse']   = 'collapse';
+        $data['sidebar_perawatan_semua']      = 'collapse-item';
+        $data['sidebar_perawatan_hari']       = 'collapse-item';
+        $data['sidebar_perawatan_minggu']     = 'collapse-item';
+        $data['sidebar_perawatan_bulan']      = 'collapse-item';
+
+        $data['sidebar_fl']                   = 'nav-item';
+        $data['sidebar_fl_collapse']          = 'collapse';
+        $data['sidebar_fl_data']              = 'collapse-item';
+        $data['sidebar_fl_print']             = 'collapse-item';
+
+        $data['sidebar_lkp']                  = 'nav-item';
+        $data['sidebar_lkp_collapse']         = 'collapse';
+        $data['sidebar_lkp_data']             = 'collapse-item';
+        $data['sidebar_lkp_print']            = 'collapse-item';
+
+        $data['sidebar_mr']               = 'nav-item';
+        $data['sidebar_mr_collapse']      = 'collapse';
+        $data['sidebar_mr_ccr']           = 'collapse-item';
+        $data['sidebar_mr_ccr_print']     = 'collapse-item';
+        $data['sidebar_mr_ups']           = 'collapse-item';
+        $data['sidebar_mr_ups_print']     = 'collapse-item';
+        $data['sidebar_mr_genset']        = 'collapse-item';
+        $data['sidebar_mr_genset_print']  = 'collapse-item';
+
+        $data['sidebar_performa_lampu']  = 'nav-item';
+        $data['sidebar_gambar']          = 'nav-item';
+
+        $data['sidebar_sop']         = 'nav-item';
+
+        $data['title'] = 'Penjadwalan Tugas - SIM-PPL Bandar Udara Budiarto Curug';
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+
+        $data_calendar = $this->modeldb->get_list($this->table);
+        $calendar = array();
+        foreach ($data_calendar as $key => $val) {
+            $calendar[] = array(
+           'id'  => intval($val->id),
+           'title' => $val->title,
+           'description' => trim($val->description),
+           'start' => date_format(date_create($val->start_date), "Y-m-d H:i:s"),
+           'end'  => date_format(date_create($val->end_date), "Y-m-d H:i:s"),
+           'color' => $val->color,
+          );
+        }
+
+        $dat = array();
+        $dat['get_data']   = json_encode($calendar);
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar1', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/penjadwalan', $data, $dat);
+        $this->load->view('templates/footer');
+    }
+
+    public function save()
+    {
+        $response = array();
+        $this->form_validation->set_rules('title', 'Title cant be empty ', 'required');
+        if ($this->form_validation->run() == true) {
+            $param = $this->input->post();
+            $calendar_id = $param['calendar_id'];
+            unset($param['calendar_id']);
+
+            if ($calendar_id == 0) {
+                $param['create_at']    = date('Y-m-d H:i:s');
+                $insert = $this->modeldb->insert($this->table, $param);
+
+                if ($insert > 0) {
+                    $response['status'] = true;
+                    $response['notif'] = 'Success add calendar';
+                    $response['id']  = $insert;
+                } else {
+                    $response['status'] = false;
+                    $response['notif'] = 'Server wrong, please save again';
+                }
+            } else {
+                $where   = [ 'id'  => $calendar_id];
+                $param['modified_at']    = date('Y-m-d H:i:s');
+                $update = $this->modeldb->update($this->table, $param, $where);
+
+                if ($update > 0) {
+                    $response['status'] = true;
+                    $response['notif'] = 'Success add calendar';
+                    $response['id']  = $calendar_id;
+                } else {
+                    $response['status'] = false;
+                    $response['notif'] = 'Server wrong, please save again';
+                }
+            }
+        } else {
+            $response['status'] = false;
+            $response['notif'] = validation_errors();
+        }
+
+        echo json_encode($response);
+    }
+
+    public function delete()
+    {
+        $response   = array();
+        $calendar_id  = $this->input->post('id');
+        if (!empty($calendar_id)) {
+            $where = ['id' => $calendar_id];
+            $delete = $this->modeldb->delete($this->table, $where);
+
+            if ($delete > 0) {
+                $response['status'] = true;
+                $response['notif'] = 'Success delete calendar';
+            } else {
+                $response['status'] = false;
+                $response['notif'] = 'Server wrong, please save again';
+            }
+        } else {
+            $response['status'] = false;
+            $response['notif'] = 'Data not found';
+        }
+
+        echo json_encode($response);
     }
 
     public function data_petugas()

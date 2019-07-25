@@ -27,6 +27,13 @@
   <!-- Divider -->
   <hr class="sidebar-divider">
 
+  <!-- Nav Item - Penjadwalan -->
+  <li class="nav-item">
+    <a class="nav-link" href="<?= base_url('calendar/petugas'); ?>">
+      <i class="fas fa-clipboard-list"></i>
+      <span>Jadwal</span></a>
+  </li>
+
   <!-- Nav Item - Peralatan -->
   <li class="<?= $sidebar_peralatan; ?>">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeralatan" aria-expanded="true" aria-controls="collapsePeralatan">

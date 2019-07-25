@@ -29,7 +29,7 @@
 
   <!-- Nav Item - Penjadwalan -->
   <li class="<?= $sidebar_penjadwalan; ?>">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="<?= base_url('calendar'); ?>">
       <i class="fas fa-clipboard-list"></i>
       <span>Penjadwalan</span></a>
   </li>

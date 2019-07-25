@@ -63,6 +63,11 @@
 <script src="http://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
 <link href="http://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+
+<!-- Script Full Calendar -->
+
 <!-- Get data for edit data petugas scripts -->
 <script>
     $(document).ready(function() {

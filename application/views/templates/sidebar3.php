@@ -27,6 +27,13 @@
   <!-- Divider -->
   <hr class="sidebar-divider">
 
+  <!-- Nav Item - Penjadwalan -->
+  <li class="nav-item">
+    <a class="nav-link" href="<?= base_url('calendar/pemeriksa'); ?>">
+      <i class="fas fa-clipboard-list"></i>
+      <span>Jadwal</span></a>
+  </li>
+
   <!-- Nav Item - Perawatan-->
   <li class="<?= $sidebar_perawatan; ?>">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePerawatan" aria-expanded="true" aria-controls="collapsePerawatan">
