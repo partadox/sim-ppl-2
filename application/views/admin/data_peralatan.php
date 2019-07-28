@@ -194,7 +194,7 @@
         <div class="row">
           <div class="col">
             <label>Pilih Kategori Alat</label>
-            <input class="custom-select mr-sm-2" id="add_kategori" name="add_kategori">
+            <input class="custom-select mr-sm-2" id="add_kategori" name="add_kategori" disabled>
           </div>
           <div class="col">
             <label>Nama Peralatan</label>

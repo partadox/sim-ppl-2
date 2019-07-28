@@ -493,6 +493,7 @@ class Admin extends CI_Controller
           'tipe'=>$this->input->post('add_tipe'),
           'data_teknis'=>$this->input->post('add_data_teknis'),
           'jumlah'=>$this->input->post('add_jumlah'),
+          'tahun_install'=>$this->input->post('add_tahun_install'),
           'kondisi'=>$this->input->post('add_kondisi'),
           'keterangan'=>$this->input->post('add_keterangan')
         );
@@ -556,6 +557,7 @@ class Admin extends CI_Controller
         $data['title'] = 'Data Peralatan Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['peralatan'] = $this->Peralatan_model->getAllPeralatan();
+        $date = $this->input->post('date');
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar1', $data);
@@ -2227,7 +2229,7 @@ class Admin extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
-        $data['title'] = 'Performa Lampu Runway - SIM PPL Bandar Udara Budiarto Curug';
+        $data['title'] = 'Performa Lampu AFL - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['operasi'] =$this->Performa_Lampu_model->operasi();
         $data['no_operasi'] =$this->Performa_Lampu_model->no_operasi();

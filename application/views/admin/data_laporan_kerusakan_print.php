@@ -17,8 +17,8 @@
         <label>Masukan Tanggal Laporan</label>
         <div class="row">
           <div class="col">
-            <input type="date" class="form-control" id="date" name="date"  data-date-format="DD MMMM YYYY">
-            <?= form_error('add_tanggal', '<small class="text-danger">', '</small>'); ?>
+            <input type="date" class="form-control" id="min" name="min"  data-date-format="DD MMMM YYYY">
+            <input type="date" class="form-control" id="max" name="max"  data-date-format="DD MMMM YYYY">
           </div>
           <div class="col">
               <button class="btn btn-primary mb-3" type="button" id="cari" name="cari"><i class="fas fa-search"></i>Cari Data (BELUM)</button>
@@ -31,6 +31,15 @@
   <!-- ============================================================== -->
   <!-- TABEL-->
   <!-- ============================================================== -->
+  <script src="http://code.jquery.com/jquery-2.0.3.min.js" data-semver="2.0.3" data-require="jquery"></script>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+   <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+   <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table_jui.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+   <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+   <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_page.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
+   <link data-require="jqueryui@*" data-semver="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
+   <script data-require="jqueryui@*" data-semver="1.10.0" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.js" data-semver="1.9.4" data-require="datatables@*"></script>
   <style type="text/css">
     .tg  {border-collapse:collapse;border-spacing:0;}
     .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
@@ -45,8 +54,17 @@
   <div class="container-fluid">
   <div class="card mb-4">
         <div class="card-body">
+          <div class="input-group input-daterange">
+
+      <input type="date" id="min-date" class="form-control date-range-filter" data-date-format="yyyy-mm-dd" placeholder="From:">
+
+      <div class="input-group-addon">to</div>
+
+      <input type="date" id="max-date" class="form-control date-range-filter" data-date-format="yyyy-mm-dd" placeholder="To:">
+
+    </div>
           <div class="table-responsive" id="table">
-            <table class="tg table-bordered"  width="100%" cellspacing="0">
+            <table  class="tg display"  id="my-table" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th width="5%">No</th>
@@ -181,3 +199,40 @@
 <!-- ============================================================== -->
 <!-- END Modal Tambah Perawatan -->
 <!-- ============================================================== -->
+
+<script type="text/javascript">
+// Bootstrap datepicker
+$('.input-daterange input').each(function() {
+$(this).datepicker('clearDates');
+});
+
+// Set up your table
+table = $('#my-table').DataTable({
+paging: false,
+info: false
+});
+
+// Extend dataTables search
+$.fn.dataTable.ext.search.push(
+function(settings, data, dataIndex) {
+var min = $('#min-date').val();
+var max = $('#max-date').val();
+var createdAt = data[2] || 0; // Our date column in the table
+
+if (
+(min == "" || max == "") ||
+(moment(createdAt).isSameOrAfter(min) && moment(createdAt).isSameOrBefore(max))
+) {
+return true;
+}
+return false;
+}
+);
+
+// Re-draw the table when the a date range filter changes
+$('.date-range-filter').change(function() {
+table.draw();
+});
+
+$('#my-table_filter').hide();
+</script>

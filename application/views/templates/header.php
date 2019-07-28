@@ -23,9 +23,7 @@
 
   <!-- Full Calendar -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" /> -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/fullcalendar/fullcalendar.css'; ?>">
-
-
+  <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/fullcalendar/fullcalendar.css'; ?>"> -->
 </head>
 
 <body id="page-top">

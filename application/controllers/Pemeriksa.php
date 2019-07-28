@@ -917,7 +917,7 @@ class Pemeriksa extends CI_Controller
         $data['sidebar_sop']         = 'nav-item';
 
 
-        $data['title'] = 'Performa Lampu Runway - SIM PPL Bandar Udara Budiarto Curug';
+        $data['title'] = 'Performa Lampu AFL - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['operasi'] =$this->Performa_Lampu_model->operasi();
         $data['no_operasi'] =$this->Performa_Lampu_model->no_operasi();

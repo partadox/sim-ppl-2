@@ -279,7 +279,8 @@
                                   </div>
                                   <div class="card mb-3" >
                                   <div class="card-body">
-                                    *Jika ingin menambah jadwal baru harus pakai tombol (Buat jadwal Baru <i class="fa fa-plus"></i>). <br>
+                                    <b>*Jika ingin menambah jadwal baru harus pakai tombol (Buat jadwal Baru <i class="fa fa-plus"></i>). </b><br>
+                                    <b>*Tanggal selesai harus didefinisikan. </b><br>
                                     *Jika terjadi error, harus sering dilakukan refresh.<br>
                                     *Jika ingin melihat detail, klik pada label warnanya.<br>
                                   </div>
@@ -335,6 +336,14 @@
                                                       <span class="input-group-addon"><i class="fa fa-calendar font-dark"></i></span>
                                                   </div>
                                           </div>
+
+                                          <div class="form-group">
+                                            <label class="control-label">Tanggal Selesai</label>
+                                                <div class="input-group input-medium date date-picker" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
+                                                    <input type="text" name="end_date" class="form-control mr-3" readonly>
+                                                    <span class="input-group-addon"><i class="fa fa-calendar font-dark"></i></span>
+                                                </div>
+                                        </div>
 
                                       </div>
                                       <div class="modal-footer">

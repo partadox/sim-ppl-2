@@ -14,14 +14,9 @@
 <?php endif ?>
 <div class="col-lg-12">
     <div class="form-group">
-        <label>Masukan Bulan Laporan</label>
         <div class="row">
+
           <div class="col">
-            <input type="month" class="form-control" id="date" name="date"  data-date-format="DD MMMM YYYY">
-            <?= form_error('add_tanggal', '<small class="text-danger">', '</small>'); ?>
-          </div>
-          <div class="col">
-              <button class="btn btn-primary mb-3" type="button" id="cari" name="cari"><i class="fas fa-search"></i>Cari Data (BELUM)</button>
                 <button class="btn btn-success mb-3 ml-3" type="button" id="add_button" onclick="printDiv('table')"><i class="fas fa-print"></i></i>Print Data</button>
           </div>
       </div>
@@ -63,7 +58,7 @@
               </thead>
               <tbody>
                 <h1><center><font size="4" class="mt-1" face="arial">BANDAR UDARA BUDIARTO CURUG</font></center></h1>
-                <center><b><font size="3" class="mt-1" face="arial">Laporan Data Peralatan Bulan</font></b></center><br>
+                <center><b><font size="3" class="mt-1" face="arial">Laporan Data Peralatan</font></b></center><br>
                 <center><b><font size="2" class="mt-1" face="arial">Jl. Raya PLP Tromol Pos 08, Curug, Serdang Wetan, Tangerang, Banten 15810<b></center><br>
                 <hr><width="100" height="75"></hr>
                 <?php $i = 1; ?>
