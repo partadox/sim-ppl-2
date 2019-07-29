@@ -63,9 +63,7 @@
                   <th width="10%">Nama Sk. Cadang</th>
                   <th width="10%">Merk</th>
                   <th width="5%">Type</th>
-                  <th width="5%">Daya</th>
-                  <th width="5%">Tegangan</th>
-                  <th width="5%">Arus</th>
+                  <th width="5%">$spesifikasi</th>
                   <th width="5%">Jumlah</th>
                   <th width="10%">Keterangan</th>
                 </tr>
@@ -80,9 +78,7 @@
                     <td><?= $prt['nama_skcadang']; ?> </td>
                     <td><?= $prt['merk']; ?> </td>
                     <td><?= $prt['tipe']; ?> </td>
-                    <td><?= $prt['daya']; ?> </td>
-                    <td><?= $prt['tegangan']; ?> </td>
-                    <td><?= $prt['arus']; ?> </td>
+                    <td><?= $prt['spesifikasi']; ?> </td>
                     <td><?= $prt['jumlah']; ?> </td>
                     <td><?= $prt['keterangan']; ?> </td>
                   </tr>
