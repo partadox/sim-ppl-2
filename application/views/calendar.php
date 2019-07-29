@@ -280,7 +280,7 @@
                                   <div class="card mb-3" >
                                   <div class="card-body">
                                     <b>*Jika ingin menambah jadwal baru harus pakai tombol (Buat jadwal Baru <i class="fa fa-plus"></i>). </b><br>
-                                    <b>*Tanggal mulai dan tanngal selesai <u>harus didefinisikan</u>. </b><br>
+                                    <b>*Tanggal mulai dan tanggal selesai <u>harus didefinisikan</u>. </b><br>
                                     *Jika terjadi error, harus sering dilakukan refresh.<br>
                                     *Jika ingin melihat detail, klik pada label warnanya.<br>
                                   </div>

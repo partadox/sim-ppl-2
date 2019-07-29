@@ -509,9 +509,7 @@ class Petugas extends CI_Controller
           'nama_skcadang'=>$this->input->post('nama_skcadang'),
           'merk'=>$this->input->post('merk'),
           'tipe'=>$this->input->post('tipe'),
-          'daya'=>$this->input->post('daya'),
-          'tegangan'=>$this->input->post('tegangan'),
-          'arus'=>$this->input->post('arus'),
+          'spesifikasi'=>$this->input->post('spesifikasi'),
           'jumlah'=>$this->input->post('jumlah'),
           'keterangan'=>$this->input->post('keterangan')
         );

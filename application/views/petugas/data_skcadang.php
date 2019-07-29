@@ -60,9 +60,7 @@
                           data-nama_skcadang="<?= $prt['nama_skcadang'] ?>"
                           data-merk="<?= $prt['merk'] ?>"
                           data-tipe="<?= $prt['tipe'] ?>"
-                          data-daya="<?= $prt['daya'] ?>"
-                          data-tegangan="<?= $prt['tegangan'] ?>"
-                          data-arus="<?= $prt['arus'] ?>"
+                          data-spesifikasi="<?= $prt['spesifikasi'] ?>"
                           data-jumlah="<?= $prt['jumlah'] ?>"
                           data-keterangan="<?= $prt['keterangan'] ?>"
                           data-target="#skcadang-modal-edit"
@@ -206,19 +204,9 @@
           </div>
             <div class="row">
               <div class="col">
-                <label class="mt-4">Daya</label>
-                <input type="number" class="form-control" id="daya" name="daya">
-                <?= form_error('daya', '<small class="text-danger">', '</small>'); ?>
-              </div>
-              <div class="col">
-                <label class="mt-4">Tegangan (Volt)</label>
-                <input type="number" class="form-control" id="tegangan" name="tegangan">
-                <?= form_error('tegangan', '<small class="text-danger">', '</small>'); ?>
-              </div>
-              <div class="col">
-                <label class="mt-4">Arus (Ampere)</label>
-                <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="30" name="arus" id="arus">
-                <?= form_error('arus', '<small class="text-danger">', '</small>'); ?>
+                <label class="mt-4">Spesifikasi</label>
+                <input type="text" class="form-control" id="spesifikasi" name="spesifikasi">
+                <?= form_error('spesifikasi', '<small class="text-danger">', '</small>'); ?>
               </div>
               <div class="col">
                 <label class="mt-4">Jumlah Total</label>

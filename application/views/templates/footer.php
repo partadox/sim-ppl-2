@@ -175,9 +175,7 @@ $(document).ready(function() {
             modal.find('#nama_skcadang').attr("value",div.data('nama_skcadang'));
             modal.find('#merk').attr("value",div.data('merk'));
             modal.find('#tipe').attr("value",div.data('tipe'));
-            modal.find('#daya').attr("value",div.data('daya'));
-            modal.find('#tegangan').attr("value",div.data('tegangan'));
-            modal.find('#arus').attr("value",div.data('arus'));
+            modal.find('#spesifikasi').attr("value",div.data('spesifikasi'));
             modal.find('#jumlah').attr("value",div.data('jumlah'));
             modal.find('#keterangan').attr("value",div.data('keterangan'));
         });
