@@ -58,6 +58,50 @@
 
 <!-- Page level custom scripts -->
 <script src="<?= base_url('assets/'); ?>js/demo/datatables-demo.js"></script>
+<!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'print',
+                title: function() {
+    return "<div style='font-size: 20px; text-align: center;' class='mb-1'><?= $bulan_print['teks']; ?></div> <div style='font-size: 20px; text-align: center;'class='mb-1'>Bandar Udara Budiarto Curug</div><div style='font-size: 14px; text-align: center;' class='mb-1'>Jl. Raya PLP Tromol Pos 08, Curug, Serdang Wetan, Tangerang, Banten 15810</div> <div><hr><width='100' height='75'></hr></div>";
+  },
+            customize: function(win)
+            {
+                var last = null;
+                var current = null;
+                var bod = [];
+
+                var css = '@page { size: landscape; }',
+                    head = win.document.head || win.document.getElementsByTagName('head')[4],
+                    style = win.document.createElement('style');
+
+                style.type = 'text/css';
+                style.media = 'print';
+
+                if (style.styleSheet)
+                {
+                  style.styleSheet.cssText = css;
+                }
+                else
+                {
+                  style.appendChild(win.document.createTextNode(css));
+                }
+
+                head.appendChild(style);
+         }
+
+            }
+        ]
+    } );
+} );
+</script>
 
 <!-- Input waktu/date scripts full js-->
 <script src="http://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
@@ -65,6 +109,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+
+
+
 
 <!-- Script Full Calendar -->
 

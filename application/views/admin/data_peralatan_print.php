@@ -14,12 +14,24 @@
 <?php endif ?>
 <div class="col-lg-12">
     <div class="form-group">
-        <div class="row">
-
+          <form action="<?= base_url('admin/tambah_bln_prt'); ?>" method="post">
+          <div class="row">
+            <label>Masukan Judul Laporan</label>
           <div class="col">
-                <button class="btn btn-success mb-3 ml-3" type="button" id="add_button" onclick="printDiv('table')"><i class="fas fa-print"></i></i>Print Data</button>
+            <input type="input" class="form-control" id="bulan" name="bulan" placeholder="cth: Laporan Kerusakan dan Perbaikan Bulan x Tahun x">
+            <?= form_error('bulan', '<small class="text-danger">', '</small>'); ?>
           </div>
+          <div class="col">
+            <button class="btn btn-primary mb-3" type="submit"><i class="fas fa-plus"></i> Masukan Judul Laporan</button>
+          </div>
+          </form>
       </div>
+    </div>
+    <div class="form-group">
+      <div> Tata Cara print Laporan Peralatan:</div>
+      <div>1. Wajib memasukan judul laporan dalam input judul laporan (sesuai format pada contoh), kemudian klik tombol <i class="fas fa-plus"></i> Masukan Judul Laporan.</div>
+      <div>2. Klik tombol print untuk priview dan print.</div>
+      <div style="font-size:18px;"><br>*Jika terdapat tulisan kecil diatas kop laporan, dapat dihilangkan dari menu setting print. Pilih More Setting dan uncheck header and footer.</div>
     </div>
 </div>
   </div>
@@ -40,8 +52,8 @@
   <div class="container-fluid">
   <div class="card mb-4">
         <div class="card-body">
-          <div class="table-responsive" id="table">
-            <table class="tg table-bordered"  width="100%" cellspacing="0">
+          <div class="table-responsive">
+            <table id="example" class="tg"  width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th width="3%">No</th>
@@ -57,10 +69,6 @@
                 </tr>
               </thead>
               <tbody>
-                <h1><center><font size="4" class="mt-1" face="arial">BANDAR UDARA BUDIARTO CURUG</font></center></h1>
-                <center><b><font size="3" class="mt-1" face="arial">Laporan Data Peralatan</font></b></center><br>
-                <center><b><font size="2" class="mt-1" face="arial">Jl. Raya PLP Tromol Pos 08, Curug, Serdang Wetan, Tangerang, Banten 15810<b></center><br>
-                <hr><width="100" height="75"></hr>
                 <?php $i = 1; ?>
                 <?php foreach ($peralatan as $prt) : ?>
                   <tr>

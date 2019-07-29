@@ -14,32 +14,31 @@
 <?php endif ?>
 <div class="col-lg-12">
     <div class="form-group">
-        <label>Masukan Tanggal Laporan</label>
-        <div class="row">
+          <form action="<?= base_url('admin/tambah_bln'); ?>" method="post">
+          <div class="row">
+            <label>Masukan Judul Laporan</label>
           <div class="col">
-            <input type="date" class="form-control" id="min" name="min"  data-date-format="DD MMMM YYYY">
-            <input type="date" class="form-control" id="max" name="max"  data-date-format="DD MMMM YYYY">
+            <input type="input" class="form-control" id="bulan" name="bulan" placeholder="cth: Laporan Kerusakan dan Perbaikan Bulan x Tahun x">
+            <?= form_error('bulan', '<small class="text-danger">', '</small>'); ?>
           </div>
           <div class="col">
-              <button class="btn btn-primary mb-3" type="button" id="cari" name="cari"><i class="fas fa-search"></i>Cari Data (BELUM)</button>
-                <button class="btn btn-success mb-3 ml-3" type="button" id="add_button" onclick="printDiv('table')"><i class="fas fa-print"></i></i>Print Data</button>
+            <button class="btn btn-primary mb-3" type="submit"><i class="fas fa-plus"></i> Masukan Judul Laporan</button>
           </div>
+          </form>
       </div>
+    </div>
+    <div class="form-group">
+      <div> Tata Cara print Laporan:</div>
+      <div>1. Wajib memasukan judul laporan dalam input judul laporan (sesuai format pada contoh), kemudian klik tombol <i class="fas fa-plus"></i> Masukan Judul Laporan.</div>
+      <div>2. Mencari data sesuai dengan bulan data yang ingin di print pada input <b>"search tabel"</b>. Contoh print bulan Januari 2019 maka ketikan<b>"2019-01"</b></div>
+      <div>3. Klik tombol print untuk priview dan print.</div>
+      <div style="font-size:18px;"><br>*Jika terdapat tulisan kecil diatas kop laporan, dapat dihilangkan dari menu setting print. Pilih More Setting dan uncheck header and footer.</div>
     </div>
 </div>
   </div>
   <!-- ============================================================== -->
   <!-- TABEL-->
   <!-- ============================================================== -->
-  <script src="http://code.jquery.com/jquery-2.0.3.min.js" data-semver="2.0.3" data-require="jquery"></script>
-  <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
-   <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
-   <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table_jui.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
-   <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_table.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
-   <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/demo_page.css" rel="stylesheet" data-semver="1.9.4" data-require="datatables@*" />
-   <link data-require="jqueryui@*" data-semver="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
-   <script data-require="jqueryui@*" data-semver="1.10.0" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
-   <script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.js" data-semver="1.9.4" data-require="datatables@*"></script>
   <style type="text/css">
     .tg  {border-collapse:collapse;border-spacing:0;}
     .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
@@ -54,17 +53,8 @@
   <div class="container-fluid">
   <div class="card mb-4">
         <div class="card-body">
-          <div class="input-group input-daterange">
-
-      <input type="date" id="min-date" class="form-control date-range-filter" data-date-format="yyyy-mm-dd" placeholder="From:">
-
-      <div class="input-group-addon">to</div>
-
-      <input type="date" id="max-date" class="form-control date-range-filter" data-date-format="yyyy-mm-dd" placeholder="To:">
-
-    </div>
-          <div class="table-responsive" id="table">
-            <table  class="tg display"  id="my-table" width="100%" cellspacing="0">
+          <div class="table-responsive">
+            <table id="example" class="tg" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th width="5%">No</th>
@@ -82,10 +72,7 @@
                 </tr>
               </thead>
               <tbody>
-                <h1><center><font size="4" class="mt-1" face="arial">BANDAR UDARA BUDIARTO CURUG</font></center></h1>
-                <center><b><font size="3" class="mt-1" face="arial">Laporan Data Kerusakan Bulan </font></b></center><br>
-                <center><b><font size="2" class="mt-1" face="arial">Jl. Raya PLP Tromol Pos 08, Curug, Serdang Wetan, Tangerang, Banten 15810<b></center><br>
-                <hr><width="100" height="75"></hr>
+
                 <?php $i = 1; ?>
                 <?php foreach ($laporan_kerusakan as $lkp) : ?>
                   <tr>
@@ -199,40 +186,3 @@
 <!-- ============================================================== -->
 <!-- END Modal Tambah Perawatan -->
 <!-- ============================================================== -->
-
-<script type="text/javascript">
-// Bootstrap datepicker
-$('.input-daterange input').each(function() {
-$(this).datepicker('clearDates');
-});
-
-// Set up your table
-table = $('#my-table').DataTable({
-paging: false,
-info: false
-});
-
-// Extend dataTables search
-$.fn.dataTable.ext.search.push(
-function(settings, data, dataIndex) {
-var min = $('#min-date').val();
-var max = $('#max-date').val();
-var createdAt = data[2] || 0; // Our date column in the table
-
-if (
-(min == "" || max == "") ||
-(moment(createdAt).isSameOrAfter(min) && moment(createdAt).isSameOrBefore(max))
-) {
-return true;
-}
-return false;
-}
-);
-
-// Re-draw the table when the a date range filter changes
-$('.date-range-filter').change(function() {
-table.draw();
-});
-
-$('#my-table_filter').hide();
-</script>

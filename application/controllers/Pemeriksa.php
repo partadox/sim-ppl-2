@@ -142,6 +142,78 @@ class Pemeriksa extends CI_Controller
         $this->data_perawatan();
     }
 
+    public function tambah_bln_pml()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_perawatan_harian();
+    }
+
+    public function tambah_bln_fl()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_facility_logbook_print();
+    }
+
+    public function tambah_bln_lkp()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_laporan_kerusakan_print();
+    }
+
+    public function tambah_bln_ccr()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_mr_ccr_print();
+    }
+
+    public function tambah_bln_ups()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_mr_ups_print();
+    }
+
+    public function tambah_bln_genset()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_mr_genset_print();
+    }
+
 
     public function data_perawatan_harian()
     {
@@ -184,6 +256,7 @@ class Pemeriksa extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Perawatan Harian - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['perawatan'] = $this->Perawatan_model->getAllPerawatan();
@@ -414,6 +487,7 @@ class Pemeriksa extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Facility Logbook Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['logbook'] = $this->Logbook_model->getAllLogbook();
@@ -536,6 +610,7 @@ class Pemeriksa extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Laporan Kerusakan Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan_kerusakan'] = $this->LKP_model->getAllLKP();
@@ -644,6 +719,7 @@ class Pemeriksa extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Meter Reading CCR Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan_ccr'] = $this->Ccr_model->getAllCcr();
@@ -752,6 +828,7 @@ class Pemeriksa extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Meter Reading UPS Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan_ups'] = $this->Ups_model->getAllUps();
@@ -860,6 +937,7 @@ class Pemeriksa extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Meter Reading Genset Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan_genset'] = $this->Genset_model->getAllGenset();

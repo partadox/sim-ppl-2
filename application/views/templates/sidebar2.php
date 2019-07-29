@@ -76,9 +76,9 @@
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Submenu:</h6>
         <a class="<?= $sidebar_perawatan_semua; ?>" href="<?= base_url('petugas/data_perawatan'); ?>">Laporan Pemeliharaan</a>
-        <a class="<?= $sidebar_perawatan_hari; ?>" href="<?= base_url('petugas/data_perawatan_harian'); ?>">Pemeliharaan Harian</a>
-        <a class="<?= $sidebar_perawatan_minggu; ?>" href="<?= base_url('petugas/data_perawatan_mingguan'); ?>">Pemeliharaan Mingguan</a>
-        <a class="<?= $sidebar_perawatan_bulan; ?>" href="<?= base_url('petugas/data_perawatan_bulanan'); ?>">Pemeliharaan Bulanan</a>
+        <a class="<?= $sidebar_perawatan_hari; ?>" href="<?= base_url('petugas/data_perawatan_harian'); ?>">Print Lpr. Pemeliharaan</a>
+        <!-- <a class="<?= $sidebar_perawatan_minggu; ?>" href="<?= base_url('petugas/data_perawatan_mingguan'); ?>">Pemeliharaan Mingguan</a>
+        <a class="<?= $sidebar_perawatan_bulan; ?>" href="<?= base_url('petugas/data_perawatan_bulanan'); ?>">Pemeliharaan Bulanan</a> -->
       <!-- <a class="collapse-item" href="#">Ambil Peralatan</a> -->
       </div>
     </div>

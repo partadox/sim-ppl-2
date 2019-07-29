@@ -14,17 +14,25 @@
 <?php endif ?>
 <div class="col-lg-12">
     <div class="form-group">
-        <label>Masukan Tanggal Laporan</label>
-        <div class="row">
+          <form action="<?= base_url('pemeriksa/tambah_bln_pml'); ?>" method="post">
+          <div class="row">
+            <label>Masukan Judul Laporan</label>
           <div class="col">
-            <input type="date" class="form-control" id="date" name="date"  data-date-format="DD MMMM YYYY">
-            <?= form_error('add_tanggal', '<small class="text-danger">', '</small>'); ?>
+            <input type="input" class="form-control" id="bulan" name="bulan" placeholder="cth: Laporan Kerusakan dan Perbaikan Bulan x Tahun x">
+            <?= form_error('bulan', '<small class="text-danger">', '</small>'); ?>
           </div>
           <div class="col">
-              <button class="btn btn-primary mb-3" type="button" id="cari" name="cari"><i class="fas fa-search"></i>Cari Data (BELUM)</button>
-                <button class="btn btn-success mb-3 ml-3" type="button" id="add_button" onclick="printDiv('table')"><i class="fas fa-print"></i></i>Print Data</button>
+            <button class="btn btn-primary mb-3" type="submit"><i class="fas fa-plus"></i> Masukan Judul Laporan</button>
           </div>
+          </form>
       </div>
+    </div>
+    <div class="form-group">
+      <div> Tata Cara print Laporan:</div>
+      <div>1. Wajib memasukan judul laporan dalam input judul laporan (sesuai format pada contoh), kemudian klik tombol <i class="fas fa-plus"></i> Masukan Judul Laporan.</div>
+      <div>2. Mencari data sesuai dengan bulan data yang ingin di print pada input <b>"search tabel"</b>. Contoh print bulan Januari 2019 maka ketikan<b>"2019-01"</b></div>
+      <div>3. Klik tombol print untuk priview dan print.</div>
+      <div style="font-size:18px;"><br>*Jika terdapat tulisan kecil diatas kop laporan, dapat dihilangkan dari menu setting print. Pilih More Setting dan uncheck header and footer.</div>
     </div>
 </div>
   </div>
@@ -45,8 +53,8 @@
     <div class="container-fluid">
       <div class="card mb-4">
         <div class="card-body">
-          <div class="table-responsive" id="table">
-            <table class="tg table-bordered" width="100%" cellspacing="0">
+          <div class="table-responsive">
+            <table class="tg table-hover" id="example" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th width="5%">No</th>
@@ -61,10 +69,6 @@
                 </tr>
               </thead>
               <tbody>
-                <h1><center><font size="4" class="mt-1" face="arial">BANDAR UDARA BUDIARTO CURUG</font></center></h1>
-                <center><b><font size="3" class="mt-1" face="arial">Laporan Data Pemeliharaan Tanggal</font></b></center><br>
-                <center><b><font size="2" class="mt-1" face="arial">Jl. Raya PLP Tromol Pos 08, Curug, Serdang Wetan, Tangerang, Banten 15810<b></center><br>
-                <hr><width="100" height="75"></hr>
                 <?php $i = 1; ?>
                 <?php foreach ($perawatan as $prwt) : ?>
                   <tr>

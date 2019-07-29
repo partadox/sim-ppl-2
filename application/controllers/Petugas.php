@@ -274,6 +274,7 @@ class Petugas extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Peralatan Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['peralatan'] = $this->Peralatan_model->getAllPeralatan();
@@ -283,6 +284,114 @@ class Petugas extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('petugas/data_peralatan_print', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function tambah_bln_prt()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_peralatan_print();
+    }
+
+    public function tambah_bln_sk()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_skcadang_print();
+    }
+
+    public function tambah_bln_sko()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_skcadang_keluar_print();
+    }
+
+    public function tambah_bln_pml()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_perawatan_harian();
+    }
+
+    public function tambah_bln_fl()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_facility_logbook_print();
+    }
+
+    public function tambah_bln_lkp()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_laporan_kerusakan_print();
+    }
+
+    public function tambah_bln_ccr()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_mr_ccr_print();
+    }
+
+    public function tambah_bln_ups()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_mr_ups_print();
+    }
+
+    public function tambah_bln_genset()
+    {
+        $bulan = $this->input->post('bulan');
+        $laporan_teks = ([
+              'teks'=>$bulan
+            ]);
+
+        $data = array_merge($laporan_teks);
+        $this->LKP_model->Tambahteks($data);
+        $this->data_mr_genset_print();
     }
 
     public function data_skcadang()
@@ -355,9 +464,7 @@ class Petugas extends CI_Controller
         $this->form_validation->set_rules('nama_skcadang', 'Nama_skcadang', 'required|trim');
         $this->form_validation->set_rules('merk', 'Merk', 'required|trim');
         $this->form_validation->set_rules('tipe', 'Tipe', 'required|trim');
-        $this->form_validation->set_rules('daya', 'Daya', 'required|trim');
-        $this->form_validation->set_rules('tegangan', 'Tegangan', 'required');
-        $this->form_validation->set_rules('arus', 'Arus', 'required|trim');
+        $this->form_validation->set_rules('spesifikasi', 'Spesifikasi', 'required|trim');
         $this->form_validation->set_rules('jumlah', 'jumlah', 'required|trim');
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required|trim');
 
@@ -367,9 +474,7 @@ class Petugas extends CI_Controller
             $nama = $this->input->post('nama_skcadang');
             $merk = $this->input->post('merk');
             $tipe = $this->input->post('tipe');
-            $daya = $this->input->post('daya');
-            $tegangan = $this->input->post('tegangan');
-            $arus = $this->input->post('arus');
+            $spesifikasi = $this->input->post('spesifikasi');
             $jumlah = $this->input->post('jumlah');
             $keterangan = $this->input->post('keterangan');
 
@@ -379,9 +484,7 @@ class Petugas extends CI_Controller
               'nama_skcadang'=>$nama,
               'merk'=>$merk,
               'tipe'=>$tipe,
-              'daya'=>$daya,
-              'tegangan'=>$tegangan,
-              'arus'=>$arus,
+              'spesifikasi'=>$spesifikasi,
               'jumlah'=>$jumlah,
               'keterangan'=>$keterangan
             ]);
@@ -491,6 +594,7 @@ class Petugas extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Suku Cadang Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['skcadang'] = $this->Skcadang_model->getAllSkcadang();
@@ -623,6 +727,7 @@ class Petugas extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Keluar Suku Cadang Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['skcadang_keluar'] = $this->Skcadang_model->getAllSkcadangKeluar();
@@ -794,6 +899,7 @@ class Petugas extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Perawatan Harian - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['perawatan'] = $this->Perawatan_model->getAllPerawatan();
@@ -1083,6 +1189,7 @@ class Petugas extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Facility Logbook Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['logbook'] = $this->Logbook_model->getAllLogbook();
@@ -1259,6 +1366,7 @@ class Petugas extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Laporan Kerusakan Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan_kerusakan'] = $this->LKP_model->getAllLKP();
@@ -1455,6 +1563,7 @@ class Petugas extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Meter Reading CCR Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan_ccr'] = $this->Ccr_model->getAllCcr();
@@ -1651,6 +1760,7 @@ class Petugas extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Meter Reading UPS Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan_ups'] = $this->Ups_model->getAllUps();
@@ -1850,6 +1960,7 @@ class Petugas extends CI_Controller
 
         $data['sidebar_sop']         = 'nav-item';
 
+        $data['bulan_print'] = $this->LKP_model->bln_print();
         $data['title'] = 'Data Meter Reading Genset Print - SIM PPL Bandar Udara Budiarto Curug';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['laporan_genset'] = $this->Genset_model->getAllGenset();

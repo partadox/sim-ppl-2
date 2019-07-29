@@ -8,6 +8,12 @@ class LKP_model extends CI_Model
         return $this->db->query($query)->result_array();
     }
 
+    // public function printlkp($data)
+    // {
+    //     $query = "SELECT * FROM laporan_kerusakan  WHERE tanggal between $data['date1'] AND $data['date2'] ORDER BY id DESC";
+    //     return $this->db->query($query)->result_array();
+    // }
+
     public function OptionAlat()
     {
         $query = "SELECT * FROM peralatan";
@@ -23,6 +29,17 @@ class LKP_model extends CI_Model
     public function TambahLKP($data)
     {
         $this->db->insert('laporan_kerusakan', $data);
+    }
+
+    public function Tambahteks($data)
+    {
+        $this->db->insert('teks', $data);
+    }
+
+    public function bln_print()
+    {
+        $query = "SELECT teks FROM teks ORDER BY id DESC LIMIT 1";
+        return $this->db->query($query)->row_array();
     }
 
     public function hapusDataLKP($id)

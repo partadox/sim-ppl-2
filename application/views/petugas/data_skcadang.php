@@ -33,9 +33,7 @@
                   <th class="tg-0lax">Nama Sk. Cadang</th>
                   <th class="tg-0lax">Merk</th>
                   <th class="tg-0lax">Type</th>
-                  <th class="tg-0lax">Daya</th>
-                  <th class="tg-0lax">Tegangan</th>
-                  <th class="tg-0lax">Arus</th>
+                  <th class="tg-0lax">Spesifikasi</th>
                   <th class="tg-0lax">Jumlah</th>
                   <th class="tg-0lax">Keterangan</th>
                   <th class="tg-0lax">Action</th>
@@ -51,9 +49,7 @@
                     <td><?= $prt['nama_skcadang']; ?> </td>
                     <td><?= $prt['merk']; ?> </td>
                     <td><?= $prt['tipe']; ?> </td>
-                    <td><?= $prt['daya']; ?> </td>
-                    <td><?= $prt['tegangan']; ?> </td>
-                    <td><?= $prt['arus']; ?> </td>
+                    <td><?= $prt['spesifikasi']; ?> </td>
                     <td><?= $prt['jumlah']; ?> </td>
                     <td><?= $prt['keterangan']; ?> </td>
                     <td>
@@ -136,19 +132,9 @@
           </div>
             <div class="row">
               <div class="col">
-                <label class="mt-4">Daya</label>
-                <input type="number" class="form-control" id="daya" name="daya">
-                <?= form_error('daya', '<small class="text-danger">', '</small>'); ?>
-              </div>
-              <div class="col">
-                <label class="mt-4">Tegangan (Volt)</label>
-                <input type="number" class="form-control" id="tegangan" name="tegangan">
-                <?= form_error('tegangan', '<small class="text-danger">', '</small>'); ?>
-              </div>
-              <div class="col">
-                <label class="mt-4">Arus (Ampere)</label>
-                <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="30" name="arus" id="arus">
-                <?= form_error('arus', '<small class="text-danger">', '</small>'); ?>
+                <label class="mt-4">Spesifikasi</label>
+                <input type="text" class="form-control" id="spesifikasi" name="spesifikasi">
+                <?= form_error('spesifikasi', '<small class="text-danger">', '</small>'); ?>
               </div>
               <div class="col">
                 <label class="mt-4">Jumlah Total</label>
