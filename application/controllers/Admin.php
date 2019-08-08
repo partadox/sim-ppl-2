@@ -293,6 +293,8 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['petugas'] = $this->Petugas_model->getAllPetugas();
 
+
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar1', $data);
         $this->load->view('templates/topbar', $data);

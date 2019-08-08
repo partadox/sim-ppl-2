@@ -238,6 +238,11 @@
                                   </div>
                                   <div class="card mb-3" >
                                   <div class="card-body">
+                                    <b>Keterangan :</b><br>
+                                    <b>M</b> : <i>Dinas Malam (jika ada terbang malam)</i><br>
+                                    <b>P</b> : <i>Dinas Pagi (6:00 - 12:30 WIB)</i><br>
+                                    <b>S</b> : <i>Dinas Siang (12:00 - 17:30 WIB)</i><br>
+                                    <b>NS</b> : <i>Dinas Staf (8:00 - 16:00 WIB)</i><br><br>
                                     *Jika terjadi error, harus sering dilakukan refresh.<br>
                                     *Jika ingin melihat detail, klik pada label warnanya.<br>
                                   </div>

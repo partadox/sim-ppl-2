@@ -277,14 +277,29 @@
                                           </div>
                                       </div>
                                   </div>
-                                  <div class="card mb-3" >
-                                  <div class="card-body">
-                                    <b>*Jika ingin menambah jadwal baru harus pakai tombol (Buat jadwal Baru <i class="fa fa-plus"></i>). </b><br>
-                                    <b>*Tanggal mulai dan tanggal selesai <u>harus didefinisikan</u>. </b><br>
-                                    *Jika terjadi error, harus sering dilakukan refresh.<br>
-                                    *Jika ingin melihat detail, klik pada label warnanya.<br>
+                                  <div class="row">
+                                    <div class="col">
+                                      <div class="card mb-3" >
+                                      <div class="card-body">
+                                        <b>*Jika ingin menambah jadwal baru harus pakai tombol (Buat jadwal Baru<i class="fa fa-plus"></i>). </b><br>
+                                        <b>*Tanggal mulai dan tanggal selesai <u>harus didefinisikan</u>. </b><br>
+                                        *Jika terjadi error, harus sering dilakukan refresh.<br>
+                                        *Jika ingin melihat detail, klik pada label warnanya.<br>
+                                      </div>
+                                    </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="card mb-3">
+                                        <div class="card-body">
+                                          <b>Keterangan :</b><br>
+                                          <b>M</b> : <i>Dinas Malam (jika ada terbang malam)</i><br>
+                                          <b>P</b> : <i>Dinas Pagi (6:00 - 12:30 WIB)</i><br>
+                                          <b>S</b> : <i>Dinas Siang (12:00 - 17:30 WIB)</i><br>
+                                          <b>NS</b> : <i>Dinas Staf (8:00 - 16:00 WIB)</i>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
-                                </div>
                               </div>
                               <!-- place -->
                               <div id="calendarIO"></div>

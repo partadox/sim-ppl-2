@@ -63,7 +63,7 @@
                   <th width="10%">Nama Sk. Cadang</th>
                   <th width="10%">Merk</th>
                   <th width="5%">Type</th>
-                  <th width="5%">$spesifikasi</th>
+                  <th width="5%">Spesifikasi</th>
                   <th width="5%">Jumlah</th>
                   <th width="10%">Keterangan</th>
                 </tr>

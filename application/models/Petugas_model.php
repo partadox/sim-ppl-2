@@ -19,6 +19,12 @@ class Petugas_model extends CI_Model
         $this->db->delete('user');
     }
 
+    public function selected_value($id)
+    {
+        $query = "SELECT user.*, user_role.role FROM user INNER JOIN user_role ON user.role_id = user_role.id WHERE id = '$id'";
+        return $this->db->query($query)->row_array();
+    }
+
     public function edit_petugas($data, $id)
     {
         $this->db->where('id', $id);

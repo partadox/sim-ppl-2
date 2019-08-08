@@ -172,19 +172,19 @@
             <input type="text" class="form-control" id="name" name="name">
             <?= form_error('add_name', '<small class="text-danger">', '</small>'); ?>
         </div>
-        <div class="row">
-          <div class="col">
+          <div class="form-group mt-2">
             <label>Nomor Induk Pegawai</label>
             <input type="text" class="form-control" id="edit_nip" name="edit_nip">
             <?= form_error('add_nip', '<small class="text-danger">', '</small>'); ?>
           </div>
-          <div class="col">
-            <label>Pilih User Role</label>
-            <input type="text" class="form-control" id="edit_user_role" name="edit_user_role" disabled>
-              <?= form_error('add_user_role', '<small class="text-danger">', '</small>'); ?>
-            </input>
+          <div class="row">
+            <div class="col">
+              <label>User Role Sekarang</label>
+              <input type="text" class="form-control" id="edit_user_role" name="edit_user_role" disabled>
+                <?= form_error('add_user_role', '<small class="text-danger">', '</small>'); ?>
+              </input>
+            </div>
           </div>
-        </div>
           <div class="form-group mt-2">
             <label>E-mail</label>
             <input type="email" class="form-control" id="edit_email" name="edit_email">
