@@ -177,17 +177,17 @@
               <div class="row mt-4">
                 <div class="col">
                   <label>Generator Tegangan R (Volt)</label>
-                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="30" name="add_generator_vr" id="add_generator_vr">
+                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="10000" name="add_generator_vr" id="add_generator_vr">
                   <?= form_error('add_generator_vr', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col">
                   <label>Generator Tegangan S (Volt)</label>
-                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="30" name="add_generator_vs" id="add_generator_vs">
+                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="10000" name="add_generator_vs" id="add_generator_vs">
                   <?= form_error('add_generator_vs', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col">
                   <label>Generator Tegangan T (Volt)</label>
-                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="30" name="add_generator_vt" id="add_generator_vt">
+                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="10000" name="add_generator_vt" id="add_generator_vt">
                   <?= form_error('add_generator_vr', '<small class="text-danger">', '</small>'); ?>
                 </div>
               </div>

@@ -158,17 +158,17 @@
               <div class="row mt-2">
                 <div class="col">
                   <label>Supply R (Volt)</label>
-                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="30" name="add_supply_vr" id="add_supply_vr">
+                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="10000" name="add_supply_vr" id="add_supply_vr">
                   <?= form_error('add_supply_vr', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col">
                   <label>Supply S (Volt)</label>
-                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="30" name="add_supply_vs" id="add_supply_vs">
+                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="10000" name="add_supply_vs" id="add_supply_vs">
                   <?= form_error('add_supply_vs', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col">
                   <label>Supply T (Volt)</label>
-                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="30" name="add_supply_vt" id="add_supply_vt">
+                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="10000" name="add_supply_vt" id="add_supply_vt">
                   <?= form_error('add_supply_vt', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col">

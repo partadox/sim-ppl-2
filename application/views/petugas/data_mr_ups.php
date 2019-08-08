@@ -155,17 +155,17 @@
               <div class="row mt-4">
                 <div class="col">
                   <label>Input Tegangan R (Volt)</label>
-                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="30" name="add_input_vr" id="add_input_vr">
+                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="10000" name="add_input_vr" id="add_input_vr">
                   <?= form_error('add_input_vr', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col">
                   <label>Input Tegangan S (Volt)</label>
-                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="30" name="add_input_vs" id="add_input_vs">
+                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="10000" name="add_input_vs" id="add_input_vs">
                   <?= form_error('add_input_vs', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col">
                   <label>Input Tegangan T (Volt)</label>
-                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="30" name="add_input_vt" id="add_input_vt">
+                  <input type="number" class="form-control" placeholder="1.0" step="0.01" min="0" max="10000" name="add_input_vt" id="add_input_vt">
                   <?= form_error('add_input_vr', '<small class="text-danger">', '</small>'); ?>
                 </div>
               </div>
