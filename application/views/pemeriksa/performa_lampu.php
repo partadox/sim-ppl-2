@@ -16,6 +16,27 @@
   <div class="col-lg-12">
       <button class="btn btn-success ml-1 mb-3" type="button" id="add_button" data-target="#data-modal" data-toggle="modal"><i class="fas fa-folder"></i> Seluruh Data Performa Lampu</button>
   </div>
+  <div class="row">
+    <div class="col">
+      <div class="card mb-3" >
+      <div class="card-body">
+        <b>Keterangan Jumlah Lampu AFL: </b><br>
+        Total : <b>648</b> unit lampu, dengan rincian sebagai berikut:<br>
+        Approach Light (MALS) : 135 Unit<br>
+        Threshold Light : 55 Unit<br>
+        PAPI : 24 box<br>
+        R/w Edge Light : 108 Unit<br>
+        R/w End Light : 36 Unit<br>
+        T/w Edge Light : 223 Unit<br>
+        RTIL : 2 Unit<br>
+        TGS : 9 Unit<br>
+        Landing Tee : 40 Unit<br>
+        Obstruction Light : 4 Unit<br>
+        Floodlight : 12 Unit<br>
+      </div>
+    </div>
+    </div>
+  </div>
 <body>
   <style>
       #chart_wrap {
