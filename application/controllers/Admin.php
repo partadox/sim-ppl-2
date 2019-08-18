@@ -22,6 +22,7 @@ class Admin extends CI_Controller
         $this->load->model('Globalmodel', 'modeldb');
         $this->load->library('form_validation');
         $this->load->library('javascript');
+        $this->session->sess_expiration = '14400';// expires in 4 hours
     }
 
     public function index()
