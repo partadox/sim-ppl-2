@@ -2380,6 +2380,13 @@ class Admin extends CI_Controller
         $this->performa_lampu();
     }
 
+    public function hapus_performa_lampu($id)
+    {
+        $this->Performa_Lampu_model->hapusData($id);
+        $this->session->set_flashdata('pesan_performa', 'Data Performa Lampu Berhasil Terhapus!');
+        $this->performa_lampu();
+    }
+
     public function gambar_installasi()
     {
         $data['role_name_sidebar'] = 'Admin';

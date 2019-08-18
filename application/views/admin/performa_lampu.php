@@ -194,7 +194,8 @@
                   <th width="10%">Jml Operasi</th>
                   <th width="10%">Jml Tdk Operasi</th>
                   <th width="10%">Ket. Operasi</th>
-                  <th width="10%">Ket. Tdk Operaso</th>
+                  <th width="10%">Ket. Tdk Operasi</th>
+                  <th width="3%">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -207,6 +208,8 @@
                     <td><?= $lkp['no_operasi']; ?> </td>
                     <td><?= $lkp['ket_operasi']; ?> </td>
                     <td><?= $lkp['ket_no_operasi']; ?> </td>
+                    <td><a href="<?= base_url(); ?>admin/hapus_performa_lampu/<?= $lkp['id']; ?>" class="badge badge-danger" onclick="return confirm('Apa anda yakin menghapus data performa lampu ini?');">Hapus</a>
+                  </td>
                   </tr>
                   <?php $i++; ?>
                 <?php endforeach; ?>

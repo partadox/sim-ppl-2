@@ -42,4 +42,10 @@ class Performa_Lampu_model extends CI_Model
         $query = "SELECT * FROM performa_lampu ORDER BY id DESC";
         return $this->db->query($query)->result_array();
     }
+
+    public function hapusData($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('performa_lampu');
+    }
 }
